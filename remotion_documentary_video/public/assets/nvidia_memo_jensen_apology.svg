@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 650" width="800" height="650">
+  <defs>
+    <filter id="mShadow" x="-10%" y="-10%" width="125%" height="125%">
+      <feDropShadow dx="0" dy="16" stdDeviation="20" flood-color="rgba(0,0,0,0.4)" />
+    </filter>
+  </defs>
+
+  <rect x="75" y="10" width="85" height="30" rx="2" fill="rgba(255,255,225,0.7)" transform="rotate(-4, 117, 25)" />
+  <rect x="645" y="10" width="85" height="30" rx="2" fill="rgba(255,255,225,0.7)" transform="rotate(5, 687, 25)" />
+
+  <g filter="url(#mShadow)">
+    <path d="M 45,35 
+             Q 220,33 420,35 Q 620,33 755,35
+             Q 758,190 754,350 Q 758,500 755,615
+             Q 570,613 380,616 Q 190,614 45,615
+             Q 42,460 46,310 Q 41,170 45,35 Z" 
+          fill="#FAF9F6" stroke="rgba(118,185,0,0.3)" stroke-width="2" />
+
+    <g transform="translate(80, 50)">
+      <!-- Nvidia Green Header Badge -->
+      <rect x="0" y="0" width="120" height="26" fill="#76B900" rx="3" />
+      <text x="60" y="18" font-family="'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="900" fill="#000" text-anchor="middle" letter-spacing="0.1em">NVIDIA</text>
+      <text x="135" y="18" font-family="'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="800" fill="#71717A" letter-spacing="0.14em">EXECUTIVE MEMORANDUM</text>
+      <text x="640" y="18" font-family="'Courier New', monospace" font-size="11" font-weight="bold" fill="#A1A1AA" text-anchor="end">SUNDAY, NOV 8, 2026</text>
+
+      <line x1="0" y1="34" x2="640" y2="34" stroke="#E4E4E7" stroke-width="2" />
+
+      <g transform="translate(0, 50)">
+        <text x="0" y="18" font-family="'Helvetica Neue', Arial, sans-serif" font-size="23" font-weight="900" fill="#18181B">
+          A Message to Our Company
+        </text>
+        <text x="0" y="38" font-family="Georgia, serif" font-size="13" font-weight="600" fill="#52525B">
+          From: Jensen Huang, Founder &amp; Chief Executive Officer
+        </text>
+        <text x="0" y="56" font-family="Georgia, serif" font-size="12" font-style="italic" fill="#71717A">
+          To: All NVIDIA Employees, Board of Directors, Partners, and Shareholders Worldwide
+        </text>
+      </g>
+
+      <line x1="0" y1="120" x2="640" y2="120" stroke="#76B900" stroke-width="2" />
+
+      <!-- Memo Body Text -->
+      <g transform="translate(0, 140)" font-family="Georgia, serif" font-size="12" line-height="1.5" fill="#27272A">
+        <text x="0" y="14">To my colleagues at NVIDIA,</text>
+        <text x="0" y="38">I owe my family and all of you an apology.</text>
+
+        <!-- Yellow Marker Highlight -->
+        <rect x="0" y="44" width="220" height="20" fill="rgba(254, 240, 138, 0.85)" rx="2" />
+        <text x="0" y="58" font-weight="bold" fill="#000">I was unfaithful to my wife.</text>
+
+        <text x="0" y="78">My actions hurt her and our children.</text>
+        
+        <rect x="0" y="84" width="360" height="20" fill="rgba(254, 240, 138, 0.85)" rx="2" />
+        <text x="0" y="98" font-weight="bold" fill="#000">There is no excuse for what I did. I am deeply sorry.</text>
+
+        <text x="0" y="124">Throughout my life, my family has given me love and support. They deserve my</text>
+        <text x="0" y="144">honesty and loyalty. Instead, I let them down and damaged the life we built</text>
+        <text x="0" y="164">together. I take full responsibility for what I did and the hurt I caused.</text>
+
+        <text x="0" y="194">To my colleagues at NVIDIA, and to our board, partners, and shareholders:</text>
+        <text x="0" y="214">you deserve better from me. Leading NVIDIA is the privilege of my life.</text>
+
+        <text x="0" y="244">Regarding the national security concerns raised in news reports,</text>
+        <text x="0" y="264">NVIDIA’s Board of Directors has initiated an independent investigation.</text>
+        <text x="0" y="284">I support the investigation and will cooperate fully. I love our country and</text>
+        <text x="0" y="304">our company. I am committed to protecting NVIDIA and America’s national security.</text>
+
+        <text x="0" y="340" font-weight="bold" fill="#18181B">Sincerely,</text>
+        <text x="0" y="360" font-family="'Times New Roman', cursive, serif" font-size="20" font-style="italic" fill="#09090B">Jensen Huang</text>
+        <text x="0" y="380" font-size="11" fill="#71717A">Founder &amp; CEO, NVIDIA Corporation</text>
+      </g>
+
+      <!-- Stamp -->
+      <g transform="translate(450, 470) rotate(5)">
+        <rect x="0" y="0" width="180" height="42" rx="4" fill="rgba(240,253,244,0.8)" stroke="#15803D" stroke-width="3" stroke-dasharray="9,2" />
+        <text x="90" y="25" font-family="'Courier New', monospace" font-size="11" font-weight="900" fill="#15803D" letter-spacing="0.1em" text-anchor="middle">OFFICIAL ARCHIVE // CONFIDENTIAL</text>
+      </g>
+    </g>
+  </g>
+</svg>

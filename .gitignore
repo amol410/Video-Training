@@ -1,0 +1,36 @@
+# Dependencies
+node_modules/
+.npm/
+
+# Build and Render Outputs
+*.mp4
+out/
+.remotion/
+build/
+dist/
+
+# Raw Frame Deconstructions and Temporary Frame Dumps
+*frames*/
+all_frames/
+counter_frames/
+doc_vox_decomp/
+doc_vox_frames/
+entry_s4/
+preview_frames/
+s4_arrow/
+s4_arrow_early/
+scene2_crops/
+scene2_frames/
+scene4_crops_s4_*.jpg
+scene4_frames/
+scene_samples/
+scene_snapshots/
+verify_*.png
+
+# Logs and OS files
+.DS_Store
+Thumbs.db
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

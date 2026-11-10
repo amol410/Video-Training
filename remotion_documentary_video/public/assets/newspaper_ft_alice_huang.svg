@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="125%" height="125%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="rgba(0,0,0,0.35)" />
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="rgba(0,0,0,0.2)" />
+    </filter>
+    <linearGradient id="ftPaper" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF2E8" />
+      <stop offset="50%" stop-color="#FDE8D7" />
+      <stop offset="100%" stop-color="#F9DFC7" />
+    </linearGradient>
+    <linearGradient id="tapeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="rgba(255,255,230,0.6)" />
+      <stop offset="100%" stop-color="rgba(240,240,210,0.4)" />
+    </linearGradient>
+  </defs>
+
+  <!-- Scotch Tape Top Left -->
+  <rect x="60" y="8" width="90" height="32" rx="2" fill="url(#tapeGrad)" transform="rotate(-6, 105, 24)" />
+  <!-- Scotch Tape Top Right -->
+  <rect x="650" y="12" width="90" height="32" rx="2" fill="url(#tapeGrad)" transform="rotate(8, 695, 28)" />
+
+  <!-- Main Torn Newspaper Body -->
+  <g filter="url(#shadow)">
+    <path d="M 40,35 
+             Q 200,32 400,36 Q 600,33 760,35
+             Q 763,180 758,320 Q 762,460 759,565
+             Q 580,562 380,567 Q 190,563 41,565
+             Q 38,410 42,270 Q 37,140 40,35 Z" 
+          fill="url(#ftPaper)" stroke="rgba(60,40,20,0.2)" stroke-width="1.5" />
+    
+    <!-- Paper Fiber / Aged Stain Accents -->
+    <circle cx="120" cy="80" r="140" fill="rgba(210,160,110,0.06)" />
+    <circle cx="680" cy="480" r="160" fill="rgba(200,150,90,0.05)" />
+
+    <!-- Content Inset -->
+    <g transform="translate(75, 55)">
+      <!-- Top Dateline / Edition Header -->
+      <line x1="0" y1="28" x2="650" y2="28" stroke="#2B2826" stroke-width="2.5" />
+      <text x="325" y="20" font-family="'Times New Roman', Georgia, serif" font-size="28" font-weight="900" letter-spacing="0.18em" fill="#1C1815" text-anchor="middle">FINANCIAL TIMES</text>
+      
+      <g font-family="'Courier New', monospace" font-size="9" font-weight="bold" fill="#524840">
+        <text x="0" y="40">No. 50,422</text>
+        <text x="325" y="40" text-anchor="middle">MONDAY NOVEMBER 9 2026</text>
+        <text x="650" y="40" text-anchor="end">ASIA-PACIFIC EDITION ★★★</text>
+      </g>
+      <line x1="0" y1="46" x2="650" y2="46" stroke="#2B2826" stroke-width="1" />
+
+      <!-- Kicker -->
+      <rect x="0" y="58" width="165" height="18" fill="#1C1815" rx="2" />
+      <text x="82" y="71" font-family="'Helvetica Neue', Arial, sans-serif" font-size="10" font-weight="800" letter-spacing="0.14em" fill="#FFF2E8" text-anchor="middle">SPECIAL INVESTIGATION</text>
+
+      <!-- Headline -->
+      <text x="0" y="112" font-family="'Times New Roman', Georgia, serif" font-size="30" font-weight="900" fill="#110E0C" letter-spacing="-0.01em">
+        Alice Huang’s tangled web of connections
+      </text>
+
+      <!-- Subdeck -->
+      <text x="0" y="138" font-family="Georgia, serif" font-size="14" font-weight="600" font-style="italic" fill="#3D352E">
+        How Singapore cloud firm Megaspeed gained access to restricted Nvidia AI hardware
+      </text>
+      <text x="0" y="158" font-family="'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="700" fill="#66594F">
+        By Zijing Wu in Hong Kong and Eleanor Olcott in Singapore
+      </text>
+
+      <line x1="0" y1="168" x2="650" y2="168" stroke="rgba(43,40,38,0.3)" stroke-width="1" />
+
+      <!-- Dual Column Article Body -->
+      <g transform="translate(0, 182)" font-family="Georgia, serif" font-size="11.5" line-height="1.45" fill="#241E1A">
+        <!-- Column 1 -->
+        <text x="0" y="14">SINGAPORE — United States intelligence officials have concluded</text>
+        <text x="0" y="32">that Alice Huang, a senior executive at cloud-computing company</text>
+        <text x="0" y="50">Megaspeed International, was targeted and utilized as an intelligence</text>
+        
+        <!-- Yellow Marker Highlight on critical phrase -->
+        <rect x="0" y="56" width="310" height="18" fill="rgba(255, 230, 0, 0.65)" rx="2" />
+        <text x="0" y="68" font-weight="bold" fill="#000">asset by China’s Ministry of State Security (MSS),</text>
+        
+        <text x="0" y="86">raising profound corporate governance and national security alarms</text>
+        <text x="0" y="104">across Washington and allied semiconductor capitals.</text>
+        <text x="0" y="128">Corporate records reveal Alice Huang pitched multimillion-dollar</text>
+        <text x="0" y="146">data-center clusters to regional financiers, repeatedly boasting</text>
+        <text x="0" y="164">unhindered priority allocations of Nvidia Blackwell and Hopper GPUs.</text>
+
+        <!-- Column 2 -->
+        <g transform="translate(335, 0)">
+          <text x="0" y="14">The findings follow an extraordinary internal memo released</text>
+          <text x="0" y="32">by Nvidia chief executive Jensen Huang, who admitted to an</text>
+          <text x="0" y="50">extramarital relationship with Ms. Huang while insisting no</text>
+          <text x="0" y="68">proprietary product roadmaps or secrets were compromised.</text>
+          
+          <text x="0" y="98">Nvidia’s board of directors, guided by lead director Stephen</text>
+          <text x="0" y="116">Neal, has appointed former federal prosecutor Joon H. Kim of</text>
+          <text x="0" y="134">Wachtell, Lipton, Rosen &amp; Katz to lead an independent audit into</text>
+          <text x="0" y="152">global distribution pathways and regulatory compliance.</text>
+        </g>
+      </g>
+
+      <!-- Archival Rubber Stamp -->
+      <g transform="translate(470, 395) rotate(-11)">
+        <rect x="0" y="0" width="165" height="42" rx="4" fill="rgba(254,226,226,0.6)" stroke="#DC2626" stroke-width="3" stroke-dasharray="8,2" />
+        <text x="82" y="25" font-family="'Courier New', monospace" font-size="13" font-weight="900" fill="#DC2626" letter-spacing="0.12em" text-anchor="middle">EXHIBIT FT-INTEL</text>
+      </g>
+    </g>
+  </g>
+</svg>

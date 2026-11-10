@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explainer Motion Designs — Interactive Reference & Blueprint Hub</title>
+  <style>
+    :root {
+      --bg: #090a0f;
+      --card-bg: #12151f;
+      --card-border: #23293d;
+      --accent-blue: #3b82f6;
+      --accent-cyan: #06b6d4;
+      --accent-emerald: #10b981;
+      --accent-rose: #f43f5e;
+      --accent-amber: #f59e0b;
+      --accent-purple: #8b5cf6;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    header {
+      max-width: 1200px;
+      margin: 0 auto 3rem;
+      border-bottom: 1px solid var(--card-border);
+      padding-bottom: 2rem;
+    }
+    .badge-category {
+      display: inline-block;
+      background: rgba(59, 130, 246, 0.15);
+      color: var(--accent-cyan);
+      border: 1px solid rgba(6, 182, 212, 0.3);
+      padding: 0.3rem 0.8rem;
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+    h1 { font-size: 2.4rem; font-weight: 800; tracking: -0.02em; margin-bottom: 0.5rem; }
+    p.lead { color: var(--text-muted); font-size: 1.1rem; max-width: 800px; }
+
+    .nav-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1.5rem;
+    }
+    .nav-pill {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 0.45rem 1rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+    .nav-pill:hover, .nav-pill.active {
+      background: var(--accent-blue);
+      color: #fff;
+      border-color: var(--accent-blue);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 3.5rem;
+    }
+
+    .template-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    }
+    .card-header {
+      padding: 1.5rem 2rem;
+      border-bottom: 1px solid var(--card-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .card-title-group h2 { font-size: 1.6rem; font-weight: 700; }
+    .card-meta {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+    .meta-tag {
+      background: rgba(255,255,255,0.06);
+      padding: 0.25rem 0.65rem;
+      border-radius: 6px;
+      font-weight: 500;
+    }
+
+    .card-body {
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    @media (max-width: 960px) {
+      .card-body { grid-template-columns: 1fr; }
+    }
+
+    /* Motion Preview Stage */
+    .preview-stage-container {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .preview-stage {
+      background: #000;
+      border: 1px solid #2a3149;
+      border-radius: 12px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .stage-16-9 { aspect-ratio: 16 / 9; width: 100%; }
+    .stage-9-16 { aspect-ratio: 9 / 16; width: 280px; margin: 0 auto; }
+
+    .stage-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(255,255,255,0.03);
+      padding: 0.6rem 1rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+    }
+    .control-btn {
+      background: #252b40;
+      border: 1px solid #363e5b;
+      color: #fff;
+      padding: 0.4rem 0.9rem;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 0.8rem;
+      transition: all 0.2s;
+    }
+    .control-btn:hover { background: var(--accent-blue); }
+
+    /* Detail Specs */
+    .detail-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .box-section {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 10px;
+      padding: 1.25rem;
+    }
+    .box-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--accent-cyan);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.75rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .copy-btn {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.2);
+      color: var(--text-muted);
+      border-radius: 4px;
+      padding: 0.2rem 0.5rem;
+      font-size: 0.75rem;
+      cursor: pointer;
+    }
+    .copy-btn:hover { color: #fff; border-color: #fff; }
+    .prompt-content {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      line-height: 1.6;
+      color: #cbd5e1;
+      white-space: pre-wrap;
+      background: #0d1017;
+      padding: 1rem;
+      border-radius: 6px;
+      border: 1px solid #1e2433;
+    }
+
+    .keyframe-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+    }
+    .keyframe-item {
+      display: flex;
+      gap: 0.75rem;
+      align-items: baseline;
+    }
+    .kf-time {
+      font-family: var(--font-mono);
+      color: var(--accent-amber);
+      font-weight: 700;
+      min-width: 65px;
+    }
+    .kf-desc { color: var(--text-muted); }
+    .kf-desc strong { color: var(--text-main); }
+
+    /* Code Snippet */
+    .code-block {
+      background: #080a10;
+      border: 1px solid #1a2030;
+      border-radius: 6px;
+      padding: 1rem;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: #93c5fd;
+      overflow-x: auto;
+      line-height: 1.5;
+    }
+
+    /* ---------------------------------------------------- */
+    /* LIVE ANIMATION SIMULATIONS                           */
+    /* ---------------------------------------------------- */
+
+    /* Template 1: Step Process Flow */
+    #stage-how-it-works {
+      background: radial-gradient(circle at 50% 30%, #171e33 0%, #0a0d17 100%);
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .flow-headline {
+      font-size: 1.25rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      transform: translateY(-12px);
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .cards-row {
+      display: flex;
+      gap: 1.25rem;
+      width: 100%;
+      max-width: 520px;
+      margin-bottom: 1.5rem;
+    }
+    .flow-card {
+      flex: 1;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+      padding: 1rem 0.8rem;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(24px) scale(0.94);
+      transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .card-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--accent-blue);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.8rem;
+      margin-bottom: 0.5rem;
+    }
+    .flow-card h4 { font-size: 0.85rem; margin-bottom: 0.25rem; }
+    .flow-card p { font-size: 0.7rem; color: var(--text-muted); }
+    .flow-cta-btn {
+      background: var(--accent-emerald);
+      color: #000;
+      font-weight: 700;
+      padding: 0.6rem 1.4rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      border: none;
+      opacity: 0;
+      transform: scale(0.85);
+      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    /* Template 2: Two Numbers Compared */
+    #stage-two-numbers {
+      background: #0a0c14;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      padding: 1.5rem 2rem;
+      overflow: hidden;
+    }
+    .chart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 1rem;
+    }
+    .metric-number {
+      font-size: 2.2rem;
+      font-weight: 800;
+      font-family: var(--font-mono);
+      color: var(--accent-cyan);
+    }
+    .delta-tag {
+      background: rgba(16, 185, 129, 0.2);
+      border: 1px solid var(--accent-emerald);
+      color: var(--accent-emerald);
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+    .svg-chart-container {
+      flex: 1;
+      width: 100%;
+      position: relative;
+    }
+    .chart-grid line { stroke: rgba(255,255,255,0.06); stroke-dasharray: 4 4; }
+    .chart-line {
+      fill: none;
+      stroke: var(--accent-cyan);
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-dasharray: 600;
+      stroke-dashoffset: 600;
+      filter: drop-shadow(0 0 8px rgba(6, 182, 212, 0.6));
+      transition: stroke-dashoffset 2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .chart-area {
+      fill: url(#cyan-gradient);
+      opacity: 0;
+      transition: opacity 1s ease 1s;
+    }
+
+    /* Template 3: Finance Explainer */
+    #stage-finance {
+      background: radial-gradient(circle at 50% 50%, #151a28 0%, #07090e 100%);
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 1.75rem;
+    }
+    .fin-staircase {
+      display: flex;
+      align-items: flex-end;
+      gap: 12px;
+      height: 160px;
+      margin: auto 0;
+    }
+    .fin-step {
+      flex: 1;
+      background: linear-gradient(180deg, var(--accent-purple) 0%, rgba(139, 92, 246, 0.2) 100%);
+      border-top: 3px solid #c084fc;
+      border-radius: 6px 6px 0 0;
+      transform-origin: bottom;
+      transform: scaleY(0);
+      transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+      position: relative;
+    }
+    .fin-step-label {
+      position: absolute;
+      top: -24px;
+      width: 100%;
+      text-align: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    .source-badge {
+      font-size: 0.7rem;
+      color: #64748b;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    /* Template 4 & 5: Vertical Reels */
+    .vertical-phone-wrap {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 1.5rem 1.25rem;
+      position: relative;
+      background: #000;
+    }
+    .karaoke-text {
+      font-size: 1.25rem;
+      font-weight: 800;
+      line-height: 1.4;
+      margin-top: 2rem;
+    }
+    .karaoke-word {
+      display: inline-block;
+      margin-right: 0.25rem;
+      color: rgba(255,255,255,0.3);
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .karaoke-word.active {
+      color: #fff;
+      background: var(--accent-blue);
+      padding: 0 4px;
+      border-radius: 4px;
+      transform: scale(1.08);
+    }
+    .phone-mockup {
+      background: #111422;
+      border: 2px solid #2e3856;
+      border-radius: 14px;
+      padding: 1rem;
+      box-shadow: 0 12px 24px rgba(0,0,0,0.6);
+      transform: translateY(30px);
+      opacity: 0;
+      transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="badge-category">Motion Design Catalog • Category 1</div>
+    <h1>Explainer Motion Designs (5 Templates)</h1>
+    <p class="lead">Complete motion design blueprints, visual choreography, easing curves, and exact AI generation prompts for all 5 business & SaaS explainer templates.</p>
+    
+    <nav class="nav-bar">
+      <a href="#t1-how-it-works" class="nav-pill active">1. How It Works (3 Steps)</a>
+      <a href="#t2-two-numbers" class="nav-pill">2. Two Numbers Compared</a>
+      <a href="#t3-finance-sources" class="nav-pill">3. Finance Explainer</a>
+      <a href="#t4-trading-risk" class="nav-pill">4. Trading Risk Reel</a>
+      <a href="#t5-script-reel" class="nav-pill">5. Vertical Reel From Script</a>
+    </nav>
+  </header>
+
+  <main class="container">
+
+    <!-- ======================================================== -->
+    <!-- TEMPLATE 1: HOW IT WORKS, THREE STEPS                    -->
+    <!-- ======================================================== -->
+    <article id="t1-how-it-works" class="template-card">
+      <div class="card-header">
+        <div class="card-title-group">
+          <h2>1. How it works, three steps</h2>
+          <p style="color:var(--text-muted); font-size:0.9rem;">Sequential Step Cards • Pulsing Indicator Badges • Clean Exit CTA</p>
+        </div>
+        <div class="card-meta">
+          <span class="meta-tag">Aspect: 16:9 (1920×1080)</span>
+          <span class="meta-tag">Duration: 22s</span>
+          <span class="meta-tag">Engine: Remotion + GSAP</span>
+        </div>
+      </div>
+
+      <div class="card-body">
+        <!-- Interactive Preview -->
+        <div class="preview-stage-container">
+          <div class="preview-stage stage-16-9">
+            <div id="stage-how-it-works">
+              <div class="flow-headline" id="how-headline">How Ledgerly Works in 3 Steps</div>
+              <div class="cards-row">
+                <div class="flow-card" id="card-step-1">
+                  <div class="card-badge">1</div>
+                  <h4>Connect Invoices</h4>
+                  <p>1-click sync with Stripe, QuickBooks & banks</p>
+                </div>
+                <div class="flow-card" id="card-step-2">
+                  <div class="card-badge">2</div>
+                  <h4>Auto-Chase</h4>
+                  <p>Polite automated reminders every 3 days</p>
+                </div>
+                <div class="flow-card" id="card-step-3">
+                  <div class="card-badge">3</div>
+                  <h4>Get Paid</h4>
+                  <p>Funds deposited straight into your bank</p>
+                </div>
+              </div>
+              <button class="flow-cta-btn" id="how-cta">Get Started Free →</button>
+            </div>
+          </div>
+          <div class="stage-controls">
+            <span>Live Motion Simulator</span>
+            <div>
+              <button class="control-btn" onclick="playHowItWorks()">▶ Play Sequence</button>
+              <button class="control-btn" onclick="resetHowItWorks()">↺ Reset</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Details & Prompt -->
+        <div class="detail-panel">
+          <div class="box-section">
+            <div class="box-title">
+              <span>Detailed Generation Prompt</span>
+              <button class="copy-btn" onclick="copyText('prompt-1')">Copy Prompt</button>
+            </div>
+            <div class="prompt-content" id="prompt-1">Make this how-it-works video for my business. Keep the structure, the timing and the animation exactly as they are; change the words, the step illustrations and the accent colour.
+
+Business: [name]. Accent colour: [your brand colour]. Website: [url].
+Step 1: [title] + [one line].
+Step 2: [title] + [one line].
+Step 3: [title] + [one line].
+CTA button: "[Book now]".
+
+Re-record the narration with the new lines, same voice and pace.</div>
+          </div>
+
+          <div class="box-section">
+            <div class="box-title">Choreography & Keyframe Breakdown</div>
+            <ul class="keyframe-list">
+              <li class="keyframe-item">
+                <span class="kf-time">0.0s – 1.2s</span>
+                <span class="kf-desc"><strong>Title Hook:</strong> Slides from <code>translateY(-14px)</code>, opacity 0 to 1 with <code>power3.out</code>.</span>
+              </li>
+              <li class="keyframe-item">
+                <span class="kf-time">1.2s – 2.4s</span>
+                <span class="kf-desc"><strong>Step 1 Entry:</strong> Spring pop-in <code>scale: 0.9 -> 1.0</code>, badge bounce (stiffness: 180, damping: 14).</span>
+              </li>
+              <li class="keyframe-item">
+                <span class="kf-time">2.4s – 3.6s</span>
+                <span class="kf-desc"><strong>Step 2 Stagger:</strong> 120ms stagger delay. Connected line pulses cyan between badges.</span>
+              </li>
+              <li class="keyframe-item">
+                <span class="kf-time">3.6s – 4.8s</span>
+                <span class="kf-desc"><strong>Step 3 Stagger:</strong> Final card snaps into place with green verified checkmark.</span>
+              </li>
+              <li class="keyframe-item">
+                <span class="kf-time">4.8s – 6.0s</span>
+                <span class="kf-desc"><strong>CTA Bloom:</strong> Button scales 0.85 -> 1.0 with subtle glow expansion pulse.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </article>
+
+
+    <!-- ======================================================== -->
+    <!-- TEMPLATE 2: TWO NUMBERS COMPARED (DARK DASHBOARD)        -->
+    <!-- ======================================================== -->
+    <article id="t2-two-numbers" class="template-card">
+      <div class="card-header">
+        <div class="card-title-group">
+          <h2>2. Two numbers compared</h2>
+          <p style="color:var(--text-muted); font-size:0.9rem;">Dark Dashboard Style • Self-Drawing SVG Graph • Numeric Tickers • Delta Badges</p>
+        </div>
+        <div class="card-meta">
+          <span class="meta-tag">Aspect: 16:9 (1920×1080)</span>
+          <span class="meta-tag">Duration: 18s</span>
+          <span class="meta-tag">Style: Dark Dashboard</span>
+        </div>
+      </div>
+
+      <div class="card-body">
+        <div class="preview-stage-container">
+          <div class="preview-stage stage-16-9">
+            <div id="stage-two-numbers">
+              <div class="chart-header">
+                <div>
+                  <div style="font-size:0.75rem; text-transform:uppercase; color:#64748b; font-weight:700;">Scenario Comparison</div>
+                  <div style="font-weight:700; font-size:1.1rem;">Manual Outreach vs Autonomous Agent</div>
+                </div>
+                <div style="text-align:right;">
+                  <div class="metric-number" id="chart-val">$0</div>
+                  <div class="delta-tag" id="chart-delta" style="opacity:0;">+342% REVENUE</div>
+                </div>
+              </div>
+              <div class="svg-chart-container">
+                <svg viewBox="0 0 500 160" width="100%" height="100%">
+                  <defs>
+                    <linearGradient id="cyan-gradient" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.35"/>
+                      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0.0"/>
+                    </linearGradient>
+                  </defs>
+                  <g class="chart-grid">
+                    <line x1="0" y1="40" x2="500" y2="40" />
+                    <line x1="0" y1="80" x2="500" y2="80" />
+                    <line x1="0" y1="120" x2="500" y2="120" />
+                  </g>
+                  <path id="chart-path-area" class="chart-area" d="M 0 140 Q 120 120 220 80 T 400 35 T 500 15 L 500 160 L 0 160 Z" />
+                  <path id="chart-path-line" class="chart-line" d="M 0 140 Q 120 120 220 80 T 400 35 T 500 15" />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="stage-controls">
+            <span>Live Motion Simulator</span>
+            <div>
+              <button class="control-btn" onclick="playTwoNumbers()">▶ Animate Chart</button>
+              <button class="control-btn" onclick="resetTwoNumbers()">↺ Reset</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="detail-panel">
+          <div class="box-section">
+            <div class="box-title">
+              <span>Detailed Generation Prompt</span>
+              <button class="copy-btn" onclick="copyText('prompt-2')">Copy Prompt</button>
+            </div>
+            <div class="prompt-content" id="prompt-2">Make this comparison with my numbers. Keep the structure, the timing and the dashboard look exactly as they are; the chart rescales to the new values.
+
+Question: "[A or B?]".
+A: [label] ending at [value]. B: [label] ending at [value].
+Takeaway: "[one line]".
+Footnote: "[assumptions, illustrative]". Channel: [your channel].
+
+Re-record the narration with the new lines, same voice and pace.
+Style: Dark Dashboard.</div>
+          </div>
+
+          <div class="box-section">
+            <div class="box-title">Choreography & 5-Phase Keyframe Breakdown</div>
+            <ul class="keyframe-list">
+              <li class="keyframe-item">
+                <span class="kf-time">0:00 – 0:05 (f0–150)</span>
+                <span class="kf-desc"><strong>Dual Premise Cards:</strong> Side-by-side comparison cards enter with <code>cubic-bezier(0.16, 1, 0.3, 1)</code> (Scenario A: $300/mo from Age 25 vs Scenario B: Age 35).</span>
+              </li>
+              <li class="keyframe-item">
+                <span class="kf-time">0:05 – 0:13.6 (f150–410)</span>
+                <span class="kf-desc"><strong>Asymmetric Morph & Self-Drawing SVGs:</strong> Left panel expands to 1072px SVG chart canvas + 608px stacked telemetry column. Dual cubic paths self-draw with glowing tracer heads (<code>#63c6a5</code> emerald, <code>#db613b</code> coral). Tabular tickers concurrently roll ($292 -> $720K vs $0 -> $340K). Terminal vertical bracket snaps with <code>+$380K</code> pill.</span>
+              </li>
+              <li class="keyframe-item">
+                <span class="kf-time">0:13.6 – 0:22.6 (f410–680)</span>
+                <span class="kf-desc"><strong>Full-Width Difference Impact:</strong> Morph back to side-by-side cards with bottom filling gauges. 1728px Difference Card enters with animated delta ticker (<code>$0 -> $379,262 more</code>) and glowing <code>2.1x AS MUCH</code> multiplier tag.</span>
+              </li>
+              <li class="keyframe-item">
+                <span class="kf-time">0:22.6 – 0:26.0 (f680–780)</span>
+                <span class="kf-desc"><strong>Kinetic Takeaway:</strong> High-impact card reveal: <em>"THE TAKEAWAY: Time beats timing."</em></span>
+              </li>
+              <li class="keyframe-item">
+                <span class="kf-time">0:26.0 – 0:30.5 (f780–916)</span>
+                <span class="kf-desc"><strong>End Lockup & Footnote:</strong> Brand lockup with expanding two-tone underline + legal assumption footnote.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </article>
+
+
+    <!-- ======================================================== -->
+    <!-- TEMPLATE 3: FINANCE EXPLAINER WITH SOURCES               -->
+    <!-- ======================================================== -->
+    <article id="t3-finance-sources" class="template-card">
+      <div class="card-header">
+        <div class="card-title-group">
+          <h2>3. Finance explainer with sources</h2>
+          <p style="color:var(--text-muted); font-size:0.9rem;">Finance Doc Style • Macro Step Chart • Real Data Citations • Loan Payment Gap</p>
+        </div>
+        <div class="card-meta">
+          <span class="meta-tag">Aspect: 16:9 (1920×1080)</span>
+          <span class="meta-tag">Duration: 28s</span>
+          <span class="meta-tag">Style: Finance Doc</span>
+        </div>
+      </div>
+
+      <div class="card-body">
+        <div class="preview-stage-container">
+          <div class="preview-stage stage-16-9">
+            <div id="stage-finance">
+              <div>
+                <span style="font-size:0.75rem; text-transform:uppercase; color:#a855f7; font-weight:700;">Federal Reserve Rate Hikes</span>
+                <h3 style="font-size:1.15rem; font-weight:800; margin-top:2px;">Target Rate Steps (2022–2023)</h3>
+              </div>
+
+              <div class="fin-staircase">
+                <div class="fin-step" id="fin-step-1" style="height:25%;">
+                  <div class="fin-step-label">0.25%</div>
+                </div>
+                <div class="fin-step" id="fin-step-2" style="height:45%;">
+                  <div class="fin-step-label">1.50%</div>
+                </div>
+                <div class="fin-step" id="fin-step-3" style="height:70%;">
+                  <div class="fin-step-label">3.75%</div>
+                </div>
+                <div class="fin-step" id="fin-step-4" style="height:100%;">
+                  <div class="fin-step-label">5.50%</div>
+                </div>
+              </div>
+
+              <div class="source-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <span>Sources: U.S. Federal Reserve, Bureau of Labor Statistics (CPI Data 2022-2023)</span>
+              </div>
+            </div>
+          </div>
+          <div class="stage-controls">
+            <span>Live Motion Simulator</span>
+            <div>
+              <button class="control-btn" onclick="playFinance()">▶ Step Riser</button>
+              <button class="control-btn" onclick="resetFinance()">↺ Reset</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="detail-panel">
+          <div class="box-section">
+            <div class="box-title">
+              <span>Detailed Generation Prompt</span>
+              <button class="copy-btn" onclick="copyText('prompt-3')">Copy Prompt</button>
+            </div>
+            <div class="prompt-content" id="prompt-3">Make this explainer for my topic. Keep the structure, the timing and the animation exactly as they are; change only the words, the numbers, the photos and the accent colour. Every number must be real: I'll give the source for each one, and you show it on screen in small type.
+
+Topic: [what changed and when, e.g. what the Federal Reserve's 2022-2023 rate hikes did to borrowing].
+Accent colour: [your brand colour].
+
+Scene 1, the hook: one line that says what changed and how fast, over [photo].
+Scene 2, the step chart: rate changed [number] times, from [start] in [date] to [end] in [date]. Each step lands on its own beat with its real date: [every step]. Source: [source].
+Scene 3, why: [the cause with number, e.g. "To bring inflation down from 9.1%"].
+Scene 4, what it meant at home: [real before and after, 3% to 8%], with monthly payment counting up and showing gap.
+Scene 5, takeaway and sources.
+
+Re-record narration with new lines, same voice and pace.
+Style: Finance Doc.</div>
+          </div>
+
+          <div class="box-section">
+            <div class="box-title">Choreography & Keyframe Breakdown</div>
+            <ul class="keyframe-list">
+              <li class="keyframe-item">
+                <span class="kf-time">Beat 1 (0.6s)</span>
+                <span class="kf-desc"><strong>Step 1:</strong> Slams from ground to 25% height with heavy mechanical thud sound.</span>
+              </li>
+              <li class="keyframe-item">
+                <span class="kf-time">Beat 2 (1.4s)</span>
+                <span class="kf-desc"><strong>Step 2:</strong> Slams to 45% height with date tooltip reveal.</span>
+              </li>
+              <li class="keyframe-item">
+                <span class="kf-time">Beat 3 (2.2s)</span>
+                <span class="kf-desc"><strong>Step 3:</strong> Slams to 70% height with red warning tint.</span>
+              </li>
+              <li class="keyframe-item">
+                <span class="kf-time">Beat 4 (3.0s)</span>
+                <span class="kf-desc"><strong>Step 4:</strong> Reaches 100% apex (5.50%), persistent source footnote tags lock in.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </article>
+
+
+    <!-- ======================================================== -->
+    <!-- TEMPLATE 4: TRADING RISK REEL                            -->
+    <!-- ======================================================== -->
+    <article id="t4-trading-risk" class="template-card">
+      <div class="card-header">
+        <div class="card-title-group">
+          <h2>4. Trading risk reel</h2>
+          <p style="color:var(--text-muted); font-size:0.9rem;">9:16 Vertical Mobile Reel • Recovery Math Animatics • Staccato Risk Breakdown</p>
+        </div>
+        <div class="card-meta">
+          <span class="meta-tag">Aspect: 9:16 (1080×1920)</span>
+          <span class="meta-tag">Duration: 24s</span>
+          <span class="meta-tag">Pacing: Fast / Punchy</span>
+        </div>
+      </div>
+
+      <div class="card-body">
+        <div class="preview-stage-container">
+          <div class="preview-stage stage-9-16">
+            <div class="vertical-phone-wrap" id="stage-risk">
+              <div>
+                <div style="font-size:0.65rem; color:#f43f5e; font-weight:800; letter-spacing:0.1em; text-transform:uppercase;">Risk Reality</div>
+                <div style="font-size:1.1rem; font-weight:800; margin-top:2px;">The Recovery Trap</div>
+              </div>
+
+              <div style="text-align:center;">
+                <div style="font-size:0.8rem; color:#94a3b8;">If you lose:</div>
+                <div id="risk-drawdown" style="font-size:3rem; font-weight:900; color:#f43f5e; font-family:var(--font-mono);">-50%</div>
+                <div style="font-size:0.8rem; color:#94a3b8; margin-top:0.5rem;">You need:</div>
+                <div id="risk-recovery" style="font-size:2.8rem; font-weight:900; color:#10b981; font-family:var(--font-mono); opacity:0;">+100%</div>
+                <div id="risk-note" style="font-size:0.7rem; color:#cbd5e1; margin-top:0.5rem; opacity:0;">just to break even.</div>
+              </div>
+
+              <div style="background:rgba(255,255,255,0.06); border-radius:8px; padding:0.6rem; font-size:0.7rem; text-align:center;">
+                Rule: Never risk > 1% per trade.
+              </div>
+            </div>
+          </div>
+          <div class="stage-controls">
+            <span>Live 9:16 Simulator</span>
+            <div>
+              <button class="control-btn" onclick="playRiskReel()">▶ Run Reel</button>
+              <button class="control-btn" onclick="resetRiskReel()">↺ Reset</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="detail-panel">
+          <div class="box-section">
+            <div class="box-title">
+              <span>Detailed Generation Prompt</span>
+              <button class="copy-btn" onclick="copyText('prompt-4')">Copy Prompt</button>
+            </div>
+            <div class="prompt-content" id="prompt-4">Make a 9:16 vertical reel on trading risk and recovery math. High impact, punchy staccato cuts.
+
+Hook: "Lose 50%, you don't need 50% to get back."
+Risky case: "A 50% drawdown requires a +100% gain just to break even."
+Safe case: "Risk 1% per trade: 10 straight losses only costs 9.5%."
+The recovery math: Interactive formula breakdown with dynamic percentage scale.
+Takeaway: "Position sizing is survival."
+
+Re-record narration with sharp, confident pacing.</div>
+          </div>
+
+          <div class="box-section">
+            <div class="box-title">Choreography & Keyframe Breakdown</div>
+            <ul class="keyframe-list">
+              <li class="keyframe-item">
+                <span class="kf-time">0.0s – 1.0s</span>
+                <span class="kf-desc"><strong>Red Slam:</strong> Huge "-50%" zooms in from <code>scale(2.2)</code> with chromatic aberration.</span>
+              </li>
+              <li class="keyframe-item">
+                <span class="kf-time">1.2s – 2.4s</span>
+                <span class="kf-desc"><strong>Math Flip:</strong> Green "+100%" punches through from behind, revealing exponential recovery curve.</span>
+              </li>
+              <li class="keyframe-item">
+                <span class="kf-time">2.4s – 3.8s</span>
+                <span class="kf-desc"><strong>Position Size Rule:</strong> Shield icon locks in at the bottom with rule card slide.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </article>
+
+
+    <!-- ======================================================== -->
+    <!-- TEMPLATE 5: VERTICAL REEL FROM A SCRIPT                  -->
+    <!-- ======================================================== -->
+    <article id="t5-script-reel" class="template-card">
+      <div class="card-header">
+        <div class="card-title-group">
+          <h2>5. Vertical reel from a script</h2>
+          <p style="color:var(--text-muted); font-size:0.9rem;">Agency Explainer Style • Word-by-Word Kinetic Captions • 3D Floating Mockup</p>
+        </div>
+        <div class="card-meta">
+          <span class="meta-tag">Aspect: 9:16 (1080×1920)</span>
+          <span class="meta-tag">Duration: 30s</span>
+          <span class="meta-tag">Style: Agency Explainer</span>
+        </div>
+      </div>
+
+      <div class="card-body">
+        <div class="preview-stage-container">
+          <div class="preview-stage stage-9-16">
+            <div class="vertical-phone-wrap" id="stage-script">
+              <div class="karaoke-text">
+                <span class="karaoke-word" id="kw-1">Stop</span>
+                <span class="karaoke-word" id="kw-2">making</span>
+                <span class="karaoke-word" id="kw-3">ads</span>
+                <span class="karaoke-word" id="kw-4">that</span>
+                <span class="karaoke-word" id="kw-5">look</span>
+                <span class="karaoke-word" id="kw-6">like</span>
+                <span class="karaoke-word" id="kw-7">ads.</span>
+              </div>
+
+              <div class="phone-mockup" id="script-phone">
+                <div style="font-size:0.65rem; color:#60a5fa; font-weight:700;">PROVEN FORMULA</div>
+                <div style="font-size:0.85rem; font-weight:800; margin:4px 0;">Hook in 2s. No actors. Real UI.</div>
+                <div style="font-size:0.7rem; color:#94a3b8;">High converting UGC & product demos.</div>
+              </div>
+
+              <div style="font-size:0.75rem; text-align:center; color:#94a3b8;">
+                Agency Explainer Motion Engine
+              </div>
+            </div>
+          </div>
+          <div class="stage-controls">
+            <span>Live 9:16 Simulator</span>
+            <div>
+              <button class="control-btn" onclick="playScriptReel()">▶ Animate Words</button>
+              <button class="control-btn" onclick="resetScriptReel()">↺ Reset</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="detail-panel">
+          <div class="box-section">
+            <div class="box-title">
+              <span>Detailed Generation Prompt</span>
+              <button class="copy-btn" onclick="copyText('prompt-5')">Copy Prompt</button>
+            </div>
+            <div class="prompt-content" id="prompt-5">Make a vertical reel. Natural speaking pace. Read word for word:
+Your words, read word for word with boxed keyword highlight captions.
+
+Hook: Stop making ads that look like ads.
+Point 1: Show the problem in the first 2 seconds.
+Point 2: Real customers, zero actors.
+Point 3: One clear call to action.
+End card: [Company name] + website URL.
+
+Style: Agency Explainer.</div>
+          </div>
+
+          <div class="box-section">
+            <div class="box-title">Choreography & Keyframe Breakdown</div>
+            <ul class="keyframe-list">
+              <li class="keyframe-item">
+                <span class="kf-time">0.0s – 2.1s</span>
+                <span class="kf-desc"><strong>Karaoke Timing:</strong> Word-by-word highlighted box synchronized to narration audio markers.</span>
+              </li>
+              <li class="keyframe-item">
+                <span class="kf-time">2.2s – 3.5s</span>
+                <span class="kf-desc"><strong>Phone Perspective:</strong> 3D tilted phone card slides upwards from bottom with subtle drop shadow.</span>
+              </li>
+              <li class="keyframe-item">
+                <span class="kf-time">3.5s – 5.0s</span>
+                <span class="kf-desc"><strong>Proof Points:</strong> Three bullet badges pop onto phone screen in rapid 180ms intervals.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </article>
+
+  </main>
+
+  <!-- Interactive JavaScript Drivers -->
+  <script>
+    // Copy helper
+    function copyText(id) {
+      const text = document.getElementById(id).innerText;
+      navigator.clipboard.writeText(text);
+      alert('Prompt copied to clipboard!');
+    }
+
+    // Template 1: How It Works Simulator
+    function playHowItWorks() {
+      resetHowItWorks();
+      setTimeout(() => {
+        const headline = document.getElementById('how-headline');
+        headline.style.opacity = '1';
+        headline.style.transform = 'translateY(0)';
+      }, 150);
+
+      setTimeout(() => {
+        const c1 = document.getElementById('card-step-1');
+        c1.style.opacity = '1';
+        c1.style.transform = 'translateY(0) scale(1)';
+      }, 700);
+
+      setTimeout(() => {
+        const c2 = document.getElementById('card-step-2');
+        c2.style.opacity = '1';
+        c2.style.transform = 'translateY(0) scale(1)';
+      }, 1300);
+
+      setTimeout(() => {
+        const c3 = document.getElementById('card-step-3');
+        c3.style.opacity = '1';
+        c3.style.transform = 'translateY(0) scale(1)';
+      }, 1900);
+
+      setTimeout(() => {
+        const cta = document.getElementById('how-cta');
+        cta.style.opacity = '1';
+        cta.style.transform = 'scale(1)';
+      }, 2500);
+    }
+    function resetHowItWorks() {
+      const headline = document.getElementById('how-headline');
+      headline.style.opacity = '0';
+      headline.style.transform = 'translateY(-12px)';
+      ['card-step-1', 'card-step-2', 'card-step-3'].forEach(id => {
+        const el = document.getElementById(id);
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(24px) scale(0.94)';
+      });
+      const cta = document.getElementById('how-cta');
+      cta.style.opacity = '0';
+      cta.style.transform = 'scale(0.85)';
+    }
+
+    // Template 2: Two Numbers Compared Simulator
+    function playTwoNumbers() {
+      resetTwoNumbers();
+      const line = document.getElementById('chart-path-line');
+      const area = document.getElementById('chart-path-area');
+      const val = document.getElementById('chart-val');
+      const delta = document.getElementById('chart-delta');
+
+      setTimeout(() => {
+        line.style.strokeDashoffset = '0';
+        area.style.opacity = '1';
+
+        // Counter ticker
+        let count = 0;
+        const target = 148500;
+        const duration = 1800;
+        const start = performance.now();
+        function updateCounter(now) {
+          const elapsed = now - start;
+          const progress = Math.min(elapsed / duration, 1);
+          const easeOut = 1 - Math.pow(1 - progress, 3);
+          const current = Math.floor(target * easeOut);
+          val.innerText = '$' + current.toLocaleString();
+          if (progress < 1) {
+            requestAnimationFrame(updateCounter);
+          } else {
+            delta.style.opacity = '1';
+          }
+        }
+        requestAnimationFrame(updateCounter);
+      }, 200);
+    }
+    function resetTwoNumbers() {
+      const line = document.getElementById('chart-path-line');
+      const area = document.getElementById('chart-path-area');
+      const val = document.getElementById('chart-val');
+      const delta = document.getElementById('chart-delta');
+      line.style.strokeDashoffset = '600';
+      area.style.opacity = '0';
+      val.innerText = '$0';
+      delta.style.opacity = '0';
+    }
+
+    // Template 3: Finance Step Riser
+    function playFinance() {
+      resetFinance();
+      const steps = ['fin-step-1', 'fin-step-2', 'fin-step-3', 'fin-step-4'];
+      steps.forEach((id, index) => {
+        setTimeout(() => {
+          document.getElementById(id).style.transform = 'scaleY(1)';
+        }, 300 + index * 500);
+      });
+    }
+    function resetFinance() {
+      ['fin-step-1', 'fin-step-2', 'fin-step-3', 'fin-step-4'].forEach(id => {
+        document.getElementById(id).style.transform = 'scaleY(0)';
+      });
+    }
+
+    // Template 4: Trading Risk Reel
+    function playRiskReel() {
+      resetRiskReel();
+      const drawdown = document.getElementById('risk-drawdown');
+      const recovery = document.getElementById('risk-recovery');
+      const note = document.getElementById('risk-note');
+
+      setTimeout(() => {
+        drawdown.style.transform = 'scale(1.15)';
+        drawdown.style.transition = 'transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+      }, 200);
+
+      setTimeout(() => {
+        recovery.style.opacity = '1';
+        recovery.style.transform = 'translateY(0)';
+        recovery.style.transition = 'all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)';
+        note.style.opacity = '1';
+      }, 1200);
+    }
+    function resetRiskReel() {
+      const drawdown = document.getElementById('risk-drawdown');
+      const recovery = document.getElementById('risk-recovery');
+      const note = document.getElementById('risk-note');
+      drawdown.style.transform = 'scale(1)';
+      recovery.style.opacity = '0';
+      note.style.opacity = '0';
+    }
+
+    // Template 5: Script Reel
+    function playScriptReel() {
+      resetScriptReel();
+      const words = ['kw-1', 'kw-2', 'kw-3', 'kw-4', 'kw-5', 'kw-6', 'kw-7'];
+      words.forEach((id, index) => {
+        setTimeout(() => {
+          document.getElementById(id).classList.add('active');
+        }, index * 260);
+      });
+      setTimeout(() => {
+        const phone = document.getElementById('script-phone');
+        phone.style.opacity = '1';
+        phone.style.transform = 'translateY(0)';
+      }, words.length * 260 + 200);
+    }
+    function resetScriptReel() {
+      ['kw-1', 'kw-2', 'kw-3', 'kw-4', 'kw-5', 'kw-6', 'kw-7'].forEach(id => {
+        document.getElementById(id).classList.remove('active');
+      });
+      const phone = document.getElementById('script-phone');
+      phone.style.opacity = '0';
+      phone.style.transform = 'translateY(30px)';
+    }
+
+    // Auto-play the first animation on load
+    window.addEventListener('DOMContentLoaded', () => {
+      setTimeout(playHowItWorks, 600);
+    });
+  </script>
+</body>
+</html>

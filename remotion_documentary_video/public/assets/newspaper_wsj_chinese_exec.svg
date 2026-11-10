@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <filter id="wsjShadow" x="-10%" y="-10%" width="125%" height="125%">
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="rgba(0,0,0,0.4)" />
+    </filter>
+    <linearGradient id="wsjPaper" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCFAF2" />
+      <stop offset="50%" stop-color="#FAF6EA" />
+      <stop offset="100%" stop-color="#F4EEE0" />
+    </linearGradient>
+  </defs>
+
+  <!-- Scotch Tape -->
+  <rect x="90" y="10" width="85" height="30" rx="2" fill="rgba(255,255,225,0.65)" transform="rotate(-5, 132, 25)" />
+  <rect x="630" y="12" width="85" height="30" rx="2" fill="rgba(255,255,225,0.65)" transform="rotate(6, 672, 27)" />
+
+  <g filter="url(#wsjShadow)">
+    <path d="M 45,35 
+             Q 220,33 420,36 Q 620,32 755,35
+             Q 759,180 754,330 Q 758,470 755,565
+             Q 570,563 380,567 Q 190,564 45,565
+             Q 41,410 46,270 Q 40,140 45,35 Z" 
+          fill="url(#wsjPaper)" stroke="rgba(30,30,30,0.25)" stroke-width="1.5" />
+
+    <g transform="translate(80, 55)">
+      <!-- WSJ Classic Masthead -->
+      <text x="320" y="24" font-family="'Times New Roman', Georgia, serif" font-size="31" font-weight="900" letter-spacing="0.08em" fill="#111" text-anchor="middle">THE WALL STREET JOURNAL.</text>
+      <line x1="0" y1="32" x2="640" y2="32" stroke="#111" stroke-width="3" />
+      
+      <g font-family="'Times New Roman', serif" font-size="9.5" fill="#333">
+        <text x="0" y="44">© 2026 Dow Jones &amp; Company. All Rights Reserved.</text>
+        <text x="320" y="44" text-anchor="middle">SUNDAY, NOVEMBER 8, 2026</text>
+        <text x="640" y="44" text-anchor="end">VOL. CCXCII NO. 110 ★★★★ $5.00</text>
+      </g>
+      <line x1="0" y1="50" x2="640" y2="50" stroke="#111" stroke-width="1" />
+
+      <!-- 3-Line WSJ Headline -->
+      <g transform="translate(0, 85)">
+        <text x="0" y="0" font-family="'Times New Roman', Georgia, serif" font-size="27" font-weight="900" fill="#0A0A0A" letter-spacing="-0.02em">
+          Chinese Executive Close to Nvidia CEO
+        </text>
+        <text x="0" y="32" font-family="'Times New Roman', Georgia, serif" font-size="27" font-weight="900" fill="#0A0A0A" letter-spacing="-0.02em">
+          Suspected of Giving China Information
+        </text>
+        
+        <text x="0" y="60" font-family="Georgia, serif" font-size="13" font-style="italic" fill="#2E2E2E">
+          Classified U.S. memorandum examines ties between Jensen Huang and Megaspeed executive
+        </text>
+        <text x="0" y="80" font-family="'Helvetica Neue', sans-serif" font-size="11" font-weight="bold" fill="#555">
+          By Amrith Ramkumar, Lingling Wei and Robbie Whelan
+        </text>
+      </g>
+
+      <line x1="0" y1="180" x2="640" y2="180" stroke="#888" stroke-width="0.8" />
+
+      <!-- Columns -->
+      <g transform="translate(0, 196)" font-family="Georgia, serif" font-size="11.5" line-height="1.45" fill="#1F1F1F">
+        <text x="0" y="14">WASHINGTON — A classified U.S. intelligence</text>
+        <text x="0" y="32">memorandum has concluded that Alice Huang, who</text>
+        <text x="0" y="50">developed an intimate relationship with Nvidia chief</text>
+        
+        <!-- Highlight -->
+        <rect x="0" y="56" width="305" height="18" fill="rgba(254, 240, 138, 0.75)" rx="2" />
+        <text x="0" y="68" font-weight="bold" fill="#000">Jensen Huang, was acting as an asset for Beijing’s</text>
+        
+        <text x="0" y="86">Ministry of State Security while Singapore-based cloud</text>
+        <text x="0" y="104">provider Megaspeed acquired billions in restricted chips.</text>
+        <text x="0" y="126">The disclosure has triggered emergency reviews across the</text>
+        <text x="0" y="144">Commerce Department’s Bureau of Industry and Security</text>
+        <text x="0" y="162">regarding AI chip smuggling pipelines into mainland China.</text>
+
+        <g transform="translate(330, 0)">
+          <text x="0" y="14">Mr. Huang released an internal memo to all staff</text>
+          <text x="0" y="32">acknowledging infidelity in his 40-year marriage,</text>
+          <text x="0" y="50">writing there was “no excuse” for his conduct.</text>
+          <text x="0" y="74">Nvidia’s board affirmed that independent outside</text>
+          <text x="0" y="92">counsel has been retained to audit whether national</text>
+          <text x="0" y="110">security secrets were compromised.</text>
+          <text x="0" y="138">Chinese embassy officials vigorously rejected the</text>
+          <text x="0" y="156">allegations, characterizing them as political smears.</text>
+        </g>
+      </g>
+
+      <!-- Stamp -->
+      <g transform="translate(460, 400) rotate(9)">
+        <rect x="0" y="0" width="170" height="40" rx="3" fill="rgba(254,226,226,0.7)" stroke="#991B1B" stroke-width="2.8" stroke-dasharray="9,2" />
+        <text x="85" y="24" font-family="'Courier New', monospace" font-size="12" font-weight="900" fill="#991B1B" letter-spacing="0.1em" text-anchor="middle">RESTRICTED // BIS 2026</text>
+      </g>
+    </g>
+  </g>
+</svg>

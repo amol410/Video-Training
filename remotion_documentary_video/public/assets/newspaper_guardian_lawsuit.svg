@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <filter id="gShadow" x="-10%" y="-10%" width="125%" height="125%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="rgba(0,0,0,0.38)" />
+    </filter>
+  </defs>
+
+  <!-- Tape -->
+  <rect x="80" y="12" width="90" height="30" rx="2" fill="rgba(255,255,225,0.6)" transform="rotate(-7, 125, 27)" />
+  <rect x="640" y="14" width="90" height="30" rx="2" fill="rgba(255,255,225,0.6)" transform="rotate(7, 685, 29)" />
+
+  <g filter="url(#gShadow)">
+    <path d="M 45,35 
+             Q 220,33 420,35 Q 620,33 755,35
+             Q 758,180 754,330 Q 758,470 755,565
+             Q 570,563 380,566 Q 190,564 45,565
+             Q 42,410 46,270 Q 41,140 45,35 Z" 
+          fill="#F6F7F8" stroke="rgba(5,41,98,0.2)" stroke-width="1.5" />
+
+    <g transform="translate(80, 50)">
+      <!-- Guardian Dark Blue Header Bar -->
+      <rect x="0" y="0" width="640" height="48" fill="#052962" rx="3" />
+      <text x="20" y="32" font-family="'Guardian Egyptian Web', Georgia, serif" font-size="28" font-weight="900" fill="#FFF">The Guardian</text>
+      <text x="620" y="30" font-family="'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="700" fill="#FFE500" text-anchor="end">TECHNOLOGY &amp; SECURITY</text>
+
+      <!-- Headline -->
+      <g transform="translate(0, 75)">
+        <text x="0" y="24" font-family="'Guardian Headline', Arial, sans-serif" font-size="26" font-weight="900" fill="#121212" letter-spacing="-0.02em">
+          Nvidia and Jensen Huang sued in US over
+        </text>
+        <text x="0" y="56" font-family="'Guardian Headline', Arial, sans-serif" font-size="26" font-weight="900" fill="#121212" letter-spacing="-0.02em">
+          affair with alleged Chinese spy
+        </text>
+        
+        <text x="0" y="86" font-family="Georgia, serif" font-size="14" font-weight="600" fill="#333">
+          Shareholder lawsuit follows CEO’s confession and intelligence warnings of tech compromise
+        </text>
+        <text x="0" y="108" font-family="'Helvetica Neue', sans-serif" font-size="11" font-weight="bold" fill="#767676">
+          Dan Milmo Global technology editor • Tue 10 Nov 2026 14.15 EST
+        </text>
+      </g>
+
+      <line x1="0" y1="195" x2="640" y2="195" stroke="#DCDCDC" stroke-width="1.5" />
+
+      <!-- Body -->
+      <g transform="translate(0, 212)" font-family="Georgia, serif" font-size="12" line-height="1.45" fill="#333">
+        <text x="0" y="14">SAN FRANCISCO — Nvidia and its chief executive, Jensen Huang,</text>
+        <text x="0" y="32">have been named in a high-profile shareholder class action following</text>
+        <text x="0" y="50">revelations of his relationship with a woman suspected by U.S. intelligence</text>
+        
+        <!-- Yellow Marker -->
+        <rect x="0" y="56" width="315" height="18" fill="rgba(255, 230, 0, 0.7)" rx="2" />
+        <text x="0" y="68" font-weight="bold" fill="#000">of working as an asset for Beijing’s state security service.</text>
+        
+        <text x="0" y="88">In an emotional company-wide memo, Huang apologized to staff</text>
+        <text x="0" y="106">and his family, admitting there was “no excuse” for his actions.</text>
+
+        <g transform="translate(340, 0)">
+          <text x="0" y="14">The scandal lands as Washington steps up its battle</text>
+          <text x="0" y="32">to stop cutting-edge artificial intelligence semiconductors</text>
+          <text x="0" y="50">reaching China through third-party hubs in Southeast Asia.</text>
+          <text x="0" y="74">Huang has pledged complete transparency and full</text>
+          <text x="0" y="92">cooperation with an independent board audit.</text>
+        </g>
+      </g>
+
+      <!-- Stamp -->
+      <g transform="translate(450, 390) rotate(-8)">
+        <rect x="0" y="0" width="180" height="42" rx="4" fill="rgba(254,226,226,0.6)" stroke="#B91C1C" stroke-width="3" />
+        <text x="90" y="25" font-family="'Courier New', monospace" font-size="11.5" font-weight="900" fill="#B91C1C" letter-spacing="0.08em" text-anchor="middle">LEGAL DOCKET 26-CV-8841</text>
+      </g>
+    </g>
+  </g>
+</svg>

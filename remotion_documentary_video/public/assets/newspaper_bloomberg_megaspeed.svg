@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <filter id="bShadow" x="-10%" y="-10%" width="125%" height="125%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="rgba(0,0,0,0.4)" />
+    </filter>
+  </defs>
+
+  <rect x="75" y="12" width="85" height="30" rx="2" fill="rgba(255,255,225,0.6)" transform="rotate(-6, 117, 27)" />
+  <rect x="645" y="12" width="85" height="30" rx="2" fill="rgba(255,255,225,0.6)" transform="rotate(6, 687, 27)" />
+
+  <g filter="url(#bShadow)">
+    <path d="M 45,35 
+             Q 220,33 420,35 Q 620,33 755,35
+             Q 758,180 754,330 Q 758,470 755,565
+             Q 570,563 380,566 Q 190,564 45,565
+             Q 42,410 46,270 Q 41,140 45,35 Z" 
+          fill="#F1F5F9" stroke="rgba(15,23,42,0.25)" stroke-width="1.5" />
+
+    <g transform="translate(80, 50)">
+      <!-- Bloomberg Terminal Ticker Header -->
+      <rect x="0" y="0" width="640" height="38" fill="#0F172A" rx="2" />
+      <text x="16" y="24" font-family="'Helvetica Neue', Arial, sans-serif" font-size="20" font-weight="900" fill="#FFF" letter-spacing="0.05em">Bloomberg</text>
+      <text x="145" y="24" font-family="'Courier New', monospace" font-size="12" font-weight="bold" fill="#38BDF8">TERMINAL DISPATCH // NVDA US $148.20 ▲ +2.4%</text>
+
+      <g transform="translate(0, 60)">
+        <text x="0" y="22" font-family="'Helvetica Neue', Arial, sans-serif" font-size="24" font-weight="900" fill="#0F172A" letter-spacing="-0.02em">
+          Nvidia Counsel Contacted Commerce Officials Over
+        </text>
+        <text x="0" y="52" font-family="'Helvetica Neue', Arial, sans-serif" font-size="24" font-weight="900" fill="#0F172A" letter-spacing="-0.02em">
+          Singapore Detention of Megaspeed Executive
+        </text>
+        
+        <text x="0" y="80" font-family="Georgia, serif" font-size="13.5" font-style="italic" fill="#475569">
+          Trade records indicate advanced AI chip sales through partners exceeded regional quotas
+        </text>
+        <text x="0" y="100" font-family="'Helvetica Neue', sans-serif" font-size="11" font-weight="bold" fill="#64748B">
+          By Ian King and Mackenzie Hawkins • November 9, 2026
+        </text>
+      </g>
+
+      <line x1="0" y1="170" x2="640" y2="170" stroke="#CBD5E1" stroke-width="1.5" />
+
+      <g transform="translate(0, 186)" font-family="Georgia, serif" font-size="11.5" line-height="1.45" fill="#1E293B">
+        <text x="0" y="14">SANTA CLARA — Nvidia’s top legal officer reached out to U.S.</text>
+        <text x="0" y="32">Commerce Department officials inquiring about the status of</text>
+        <text x="0" y="50">Megaspeed executive Alice Huang following her temporary</text>
+        
+        <!-- Highlight -->
+        <rect x="0" y="56" width="310" height="18" fill="rgba(186, 230, 253, 0.75)" rx="2" />
+        <text x="0" y="68" font-weight="bold" fill="#0369A1">detention in Singapore amid federal chip-smuggling probes.</text>
+        
+        <text x="0" y="88">Customs manifests reviewed by Bloomberg show Megaspeed</text>
+        <text x="0" y="106">imported billions in Hopper GPUs via Southeast Asian channels.</text>
+
+        <g transform="translate(335, 0)">
+          <text x="0" y="14">Jensen Huang earlier defended the partnership as routine</text>
+          <text x="0" y="32">commercial cloud infrastructure development, stating that</text>
+          <text x="0" y="50">Nvidia maintains stringent end-user compliance controls.</text>
+          <text x="0" y="74">Washington regulators continue auditing supply paths</text>
+          <text x="0" y="92">to prevent unauthorized sovereign AI cluster builds.</text>
+        </g>
+      </g>
+
+      <g transform="translate(460, 395) rotate(-6)">
+        <rect x="0" y="0" width="165" height="40" rx="3" fill="rgba(224,242,254,0.7)" stroke="#0284C7" stroke-width="2.8" stroke-dasharray="8,2" />
+        <text x="82" y="24" font-family="'Courier New', monospace" font-size="11" font-weight="900" fill="#0369A1" letter-spacing="0.1em" text-anchor="middle">TERMINAL RECORD AUDIT</text>
+      </g>
+    </g>
+  </g>
+</svg>

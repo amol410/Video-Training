@@ -1,0 +1,7 @@
+node_modules/
+.remotion/
+out/
+build/
+dist/
+*.mp4
+.DS_Store

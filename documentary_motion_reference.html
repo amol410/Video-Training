@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Documentary Motion Designs — Interactive Reference & Blueprint Hub</title>
+  <style>
+    :root {
+      --bg: #0b0c10;
+      --card-bg: #141720;
+      --card-border: #242938;
+      --paper-cream: #f4ede2;
+      --paper-border: #dfd4c0;
+      --ink-black: #1a1a1a;
+      --accent-yellow: #fde047;
+      --accent-crimson: #be123c;
+      --accent-amber: #d97706;
+      --accent-sepia: #78350f;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --font-serif: "Newsreader", "Georgia", "Times New Roman", serif;
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    header {
+      max-width: 1200px;
+      margin: 0 auto 3rem;
+      border-bottom: 1px solid var(--card-border);
+      padding-bottom: 2rem;
+    }
+    .badge-category {
+      display: inline-block;
+      background: rgba(245, 158, 11, 0.15);
+      color: #fbbf24;
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      padding: 0.3rem 0.8rem;
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+    h1 { font-size: 2.4rem; font-weight: 800; tracking: -0.02em; margin-bottom: 0.5rem; }
+    p.lead { color: var(--text-muted); font-size: 1.1rem; max-width: 800px; }
+
+    .nav-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1.5rem;
+    }
+    .nav-pill {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 0.45rem 1rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+    .nav-pill:hover, .nav-pill.active {
+      background: #d97706;
+      color: #fff;
+      border-color: #d97706;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 3.5rem;
+    }
+
+    .template-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    }
+    .card-header {
+      padding: 1.5rem 2rem;
+      border-bottom: 1px solid var(--card-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .card-title-group h2 { font-size: 1.6rem; font-weight: 700; }
+    .card-meta {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+    .meta-tag {
+      background: rgba(255,255,255,0.06);
+      padding: 0.25rem 0.65rem;
+      border-radius: 6px;
+      font-weight: 500;
+    }
+
+    .card-body {
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    @media (max-width: 960px) {
+      .card-body { grid-template-columns: 1fr; }
+    }
+
+    /* Motion Preview Stage */
+    .preview-stage-container {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .preview-stage {
+      background: #000;
+      border: 1px solid #2a3149;
+      border-radius: 12px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .stage-16-9 { aspect-ratio: 16 / 9; width: 100%; }
+    .stage-9-16 { aspect-ratio: 9 / 16; width: 280px; margin: 0 auto; }
+
+    .stage-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(255,255,255,0.03);
+      padding: 0.6rem 1rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+    }
+    .control-btn {
+      background: #252b40;
+      border: 1px solid #363e5b;
+      color: #fff;
+      padding: 0.4rem 0.9rem;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 0.8rem;
+      transition: all 0.2s;
+    }
+    .control-btn:hover { background: #d97706; }
+
+    /* Detail Specs */
+    .detail-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .box-section {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 10px;
+      padding: 1.25rem;
+    }
+    .box-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #fbbf24;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.75rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .copy-btn {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.2);
+      color: var(--text-muted);
+      border-radius: 4px;
+      padding: 0.2rem 0.5rem;
+      font-size: 0.75rem;
+      cursor: pointer;
+    }
+    .copy-btn:hover { color: #fff; border-color: #fff; }
+    .prompt-content {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      line-height: 1.6;
+      color: #cbd5e1;
+      white-space: pre-wrap;
+      background: #0d1017;
+      padding: 1rem;
+      border-radius: 6px;
+      border: 1px solid #1e2433;
+    }
+
+    .keyframe-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+    }
+    .keyframe-item {
+      display: flex;
+      gap: 0.75rem;
+      align-items: baseline;
+    }
+    .kf-time {
+      font-family: var(--font-mono);
+      color: #fbbf24;
+      font-weight: 700;
+      min-width: 65px;
+    }
+    .kf-desc { color: var(--text-muted); }
+    .kf-desc strong { color: var(--text-main); }
+
+    /* ---------------------------------------------------- */
+    /* DOCUMENTARY LIVE SIMULATIONS                         */
+    /* ---------------------------------------------------- */
+
+    /* Template 1: Vox / Johnny Harris Map & Paper */
+    #stage-doc-vox {
+      background: #e7dfd1 url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" opacity="0.05"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.8"/></filter><rect width="100" height="100" filter="url(%23n)"/></svg>');
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .map-canvas {
+      position: absolute;
+      width: 120%;
+      height: 120%;
+      transition: transform 3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .shipping-path {
+      fill: none;
+      stroke: #dc2626;
+      stroke-width: 3.5;
+      stroke-dasharray: 8 6;
+      stroke-dashoffset: 400;
+      transition: stroke-dashoffset 2.5s ease 0.5s;
+    }
+    .map-pin {
+      position: absolute;
+      transform: translate(-50%, -100%) scale(0);
+      transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 1.8s;
+    }
+    .paper-label {
+      position: absolute;
+      background: #fbf8f2;
+      color: #1c1917;
+      font-family: var(--font-serif);
+      font-weight: 700;
+      padding: 0.35rem 0.75rem;
+      font-size: 0.85rem;
+      border: 1px solid #d6cbb8;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      transform: rotate(-2deg) scale(0.9);
+      opacity: 0;
+      transition: all 0.5s ease 2.2s;
+    }
+
+    /* Template 2: Buffett Money Story Parallax */
+    #stage-doc-buffett {
+      background: #000;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 2rem;
+    }
+    .ken-burns-photo {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: radial-gradient(circle at center, rgba(30, 41, 59, 0.6) 0%, rgba(0,0,0,0.95) 100%),
+                  url('https://motionvid.ai/workflows/doc-buffett.jpg') center/cover no-repeat;
+      filter: grayscale(100%) contrast(1.2);
+      transform: scale(1.0);
+      transition: transform 6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .glowing-stat {
+      position: relative;
+      z-index: 10;
+      font-size: 2.8rem;
+      font-weight: 900;
+      font-family: var(--font-mono);
+      color: #4ade80;
+      text-shadow: 0 0 20px rgba(74, 222, 128, 0.6);
+      transform: translateY(20px);
+      opacity: 0;
+      transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.5s;
+    }
+    .turning-point-badge {
+      position: relative;
+      z-index: 10;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #94a3b8;
+    }
+
+    /* Template 3: Vertical History Eiffel */
+    #stage-doc-eiffel {
+      background: #e8dbc3;
+      width: 100%;
+      height: 100%;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 1.5rem;
+      overflow: hidden;
+    }
+    .cutout-silhouette {
+      width: 180px;
+      height: 240px;
+      margin: auto;
+      background: #3e2723;
+      filter: drop-shadow(0 0 0 5px #fdfbf7) drop-shadow(0 15px 25px rgba(44, 28, 14, 0.4));
+      clip-path: polygon(48% 0%, 52% 0%, 56% 50%, 75% 100%, 25% 100%, 44% 50%);
+      transform: translateY(30px) scale(0.9);
+      opacity: 0;
+      transition: all 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .vintage-stamp {
+      position: absolute;
+      border: 3px solid #b91c1c;
+      color: #b91c1c;
+      padding: 0.3rem 0.8rem;
+      font-weight: 900;
+      font-family: var(--font-mono);
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      border-radius: 4px;
+      transform: rotate(-14deg) scale(2.2);
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) 1.2s;
+    }
+
+    /* Template 4 & 5: Highlighter Styles */
+    #stage-highlighter {
+      background: #faf6ee;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      color: #1e1e1e;
+      font-family: var(--font-serif);
+    }
+    .news-headline {
+      font-size: 1.35rem;
+      font-weight: 800;
+      line-height: 1.5;
+    }
+    .highlight-span {
+      position: relative;
+      display: inline-block;
+    }
+    .highlight-span::after {
+      content: '';
+      position: absolute;
+      left: -2px;
+      bottom: 2px;
+      height: 65%;
+      width: 0%;
+      background: rgba(254, 240, 138, 0.85);
+      mix-blend-mode: multiply;
+      z-index: -1;
+      border-radius: 2px;
+      transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.5s;
+    }
+    .highlight-span.active::after {
+      width: 104%;
+    }
+    .redaction-bar {
+      display: inline-block;
+      background: #111;
+      color: transparent;
+      padding: 0 4px;
+      border-radius: 2px;
+      user-select: none;
+    }
+
+    /* Template 6: Paper Essay */
+    #stage-paper-essay {
+      background: #f1ebd9;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      padding: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .scrapbook-card {
+      background: #fffdfa;
+      border: 1px solid #d5c8b2;
+      padding: 1.5rem;
+      box-shadow: 0 16px 32px rgba(45, 35, 20, 0.2);
+      transform: rotate(2deg) scale(0.9);
+      opacity: 0;
+      transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      max-width: 420px;
+      position: relative;
+    }
+    .tape-strip {
+      position: absolute;
+      top: -12px;
+      left: 30%;
+      width: 90px;
+      height: 24px;
+      background: rgba(245, 235, 200, 0.75);
+      border: 1px dashed rgba(180, 160, 120, 0.5);
+      transform: rotate(-3deg);
+      backdrop-filter: blur(2px);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="badge-category">Motion Design Catalog • Category 2</div>
+    <h1>Documentary Motion Designs (6 Templates)</h1>
+    <p class="lead">Complete motion design blueprints, visual choreography, easing curves, and exact AI generation prompts for all 6 documentary & investigative storytelling templates.</p>
+    
+    <nav class="nav-bar">
+      <a href="#t1-vox-map" class="nav-pill active">1. Geopolitics (Vox / Johnny Harris)</a>
+      <a href="#t2-buffett" class="nav-pill">2. Money Story (Buffett)</a>
+      <a href="#t3-eiffel" class="nav-pill">3. History Reel Vertical</a>
+      <a href="#t4-doc-chapter" class="nav-pill">4. Documentary Chapter</a>
+      <a href="#t5-business-story" class="nav-pill">5. Business Story Highlighter</a>
+      <a href="#t6-paper-essay" class="nav-pill">6. Paper Essay</a>
+    </nav>
+  </header>
+
+  <main class="container">
+
+    <!-- ======================================================== -->
+    <!-- TEMPLATE 1: GEOPOLITICS (VOX / JOHNNY HARRIS STYLE)      -->
+    <!-- ======================================================== -->
+    <article id="t1-vox-map" class="template-card">
+      <div class="card-header">
+        <div class="card-title-group">
+          <h2>1. Geopolitics explainer, Johnny Harris style</h2>
+          <p style="color:var(--text-muted); font-size:0.9rem;">Vox / Johnny Harris Style • Paper Collage Texture • 2.5D Animated Maps • Maritime Choke Points</p>
+        </div>
+        <div class="card-meta">
+          <span class="meta-tag">Aspect: 16:9 (1920×1080)</span>
+          <span class="meta-tag">Duration: 42s</span>
+          <span class="meta-tag">Style: Vox</span>
+        </div>
+      </div>
+
+      <div class="card-body">
+        <div class="preview-stage-container">
+          <div class="preview-stage stage-16-9">
+            <div id="stage-doc-vox">
+              <div class="map-canvas" id="vox-map">
+                <svg viewBox="0 0 600 340" width="100%" height="100%">
+                  <!-- Coastline silhouette -->
+                  <path d="M 50 80 Q 150 40 260 110 T 380 200 T 550 140" fill="none" stroke="#a89a85" stroke-width="2" />
+                  <path d="M 80 260 Q 200 240 320 220 T 480 280" fill="none" stroke="#a89a85" stroke-width="2" />
+                  <!-- Shipping lane -->
+                  <path class="shipping-path" id="vox-path" d="M 80 140 Q 220 150 310 180 T 490 200" />
+                </svg>
+              </div>
+
+              <!-- Pushpin -->
+              <div class="map-pin" id="vox-pin" style="top:52%; left:52%;">
+                <svg width="28" height="36" viewBox="0 0 24 32">
+                  <path d="M12 0 C5.37 0 0 5.37 0 12 C0 21 12 32 12 32 C12 32 24 21 24 12 C24 5.37 18.63 0 12 0 Z" fill="#dc2626"/>
+                  <circle cx="12" cy="12" r="5" fill="#fff"/>
+                </svg>
+              </div>
+
+              <div class="paper-label" id="vox-label" style="top:25%; left:45%;">
+                Strait of Hormuz • 21% Global Petroleum
+              </div>
+            </div>
+          </div>
+          <div class="stage-controls">
+            <span>Live Motion Simulator</span>
+            <div>
+              <button class="control-btn" onclick="playVoxMap()">▶ Run Map Zoom</button>
+              <button class="control-btn" onclick="resetVoxMap()">↺ Reset</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="detail-panel">
+          <div class="box-section">
+            <div class="box-title">
+              <span>Detailed Generation Prompt</span>
+              <button class="copy-btn" onclick="copyText('prompt-doc-1')">Copy Prompt</button>
+            </div>
+            <div class="prompt-content" id="prompt-doc-1">make a Johnny Harris style documentary about why a fifth of the world's oil squeezes through two narrow shipping lanes in the Strait of Hormuz.
+
+Style: Vox.
+Visuals: Paper collage, maps and satellite photos cut to a narrated script. Subtle paper textures, tactile torn paper borders, 2.5D camera tilt, animated dashed shipping lane lines, red location pins.
+
+Re-record narration with investigative tone and steady staccato pace.</div>
+          </div>
+
+          <div class="box-section">
+            <div class="box-title">Choreography & 8-Act Multiplane Breakdown</div>
+            <ul class="keyframe-list">
+              <li class="keyframe-item">
+                <span class="kf-time">0.0s – 12.6s (f0–378)</span>
+                <span class="kf-desc"><strong>Paper Map Desktop & Supertanker Cutout:</strong> Warm parchment grid (<code>#F6F2E9</code>) with 10fps stop-motion jitter (<code>Math.floor(frame / 3)</code>) and white die-cut sticker outline (supertanker sticker drops with thud).</span>
+              </li>
+              <li class="keyframe-item">
+                <span class="kf-time">12.6s – 19.9s (f378–598)</span>
+                <span class="kf-desc"><strong>Satellite Photo & Red String Pin:</strong> ISS nocturnal photograph polaroid drops at -2° tilt, pinned down with red pushpin and animated archival string connector.</span>
+              </li>
+              <li class="keyframe-item">
+                <span class="kf-time">19.9s – 44.0s (f598–1321)</span>
+                <span class="kf-desc"><strong>2.5D Camera Pitch & Zoom:</strong> Camera zooms 1.0x -> 2.85x and pitches 20° into Strait of Hormuz. "21 miles" card enters, gets struck through with red grease pencil, followed by "2 miles EACH LANE" canary yellow badge.</span>
+              </li>
+              <li class="keyframe-item">
+                <span class="kf-time">44.0s – 55.8s (f1321–1673)</span>
+                <span class="kf-desc"><strong>Dark Mode Pipeline Detour:</strong> Obsidian background shift (<code>#0A1118</code>) as pipelines fail to bypass the strait ("NO OTHER WAY OUT" red card slam).</span>
+              </li>
+              <li class="keyframe-item">
+                <span class="kf-time">55.8s – 85.8s (f1673–2573)</span>
+                <span class="kf-desc"><strong>Global Impact Climax:</strong> Huge "84% TO ASIAN MARKETS" yellow badge + EIA 2024 source tag, culminating in the 4-chokepoint map overlay ("only 4 carry the world's oil").</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </article>
+
+
+    <!-- ======================================================== -->
+    <!-- TEMPLATE 2: MONEY STORY WITH ARCHIVE PHOTOS              -->
+    <!-- ======================================================== -->
+    <article id="t2-buffett" class="template-card">
+      <div class="card-header">
+        <div class="card-title-group">
+          <h2>2. Money story with archive photos</h2>
+          <p style="color:var(--text-muted); font-size:0.9rem;">Finance Doc Style • Archival Photo Parallax • Glowing Green Type • Turning Point Beats</p>
+        </div>
+        <div class="card-meta">
+          <span class="meta-tag">Aspect: 16:9 (1920×1080)</span>
+          <span class="meta-tag">Duration: 30s</span>
+          <span class="meta-tag">Style: Finance Doc</span>
+        </div>
+      </div>
+
+      <div class="card-body">
+        <div class="preview-stage-container">
+          <div class="preview-stage stage-16-9">
+            <div id="stage-doc-buffett">
+              <div class="ken-burns-photo" id="buffett-photo"></div>
+              <div class="turning-point-badge">1965 Turning Point • Omaha, Nebraska</div>
+              <div class="glowing-stat" id="buffett-stat">$140,000,000,000</div>
+            </div>
+          </div>
+          <div class="stage-controls">
+            <span>Live Motion Simulator</span>
+            <div>
+              <button class="control-btn" onclick="playBuffett()">▶ Ken Burns Parallax</button>
+              <button class="control-btn" onclick="resetBuffett()">↺ Reset</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="detail-panel">
+          <div class="box-section">
+            <div class="box-title">
+              <span>Detailed Generation Prompt</span>
+              <button class="copy-btn" onclick="copyText('prompt-doc-2')">Copy Prompt</button>
+            </div>
+            <div class="prompt-content" id="prompt-doc-2">Make a 30 second video on how Warren Buffett turned $100 into $140 billion, from buying his first stock at 11 to running Berkshire Hathaway.
+
+Style: Finance Doc.
+Visuals: A famous number, archive photos, glowing type, one turning point.
+Scene 1: $100 in 1941, Omaha newspaper clippings.
+Scene 2: Berkshire Hathaway textile mill transition.
+Scene 3: Compounding curve explosion.
+End card: $140 Billion net worth with source attributions.</div>
+          </div>
+
+          <div class="box-section">
+            <div class="box-title">Choreography & 13-Scene Multiplane Breakdown</div>
+            <ul class="keyframe-list">
+              <li class="keyframe-item">
+                <span class="kf-time">0.0s – 4.2s (f0–126)</span>
+                <span class="kf-desc"><strong>Hook & Age Contrast Cut:</strong> Modern Buffett cutout over dark tech grid ("How does $100") hard-cuts to young 1950s Buffett ("become $140 billion?").</span>
+              </li>
+              <li class="keyframe-item">
+                <span class="kf-time">4.2s – 8.1s (f126–242)</span>
+                <span class="kf-desc"><strong>Archival Milestone & Stock HUD:</strong> 1942 Manhattan photo Ken Burns drift (0.04%/frame push-in) + self-drawing SVG stock path for Cities Service (<code>$38 ▲ +5.3%</code> in phosphor green <code>#22c55e</code>).</span>
+              </li>
+              <li class="keyframe-item">
+                <span class="kf-time">8.1s – 14.9s (f242–446)</span>
+                <span class="kf-desc"><strong>Rhythmic Rapid Cuts (<1s):</strong> Folded newspaper bundles (0.97s) ➔ pinball machine macro (2.03s) ➔ dark partnership coordinate grid with floating dust motes.</span>
+              </li>
+              <li class="keyframe-item">
+                <span class="kf-time">14.9s – 22.8s (f446–684)</span>
+                <span class="kf-desc"><strong>The 1965 Turning Point:</strong> B&W textile mill looms. Hard-cut to heavy machinery (0.93s) ➔ modern skyscraper glass reflection ("Float. Invest it.") with vignette dimming.</span>
+              </li>
+              <li class="keyframe-item">
+                <span class="kf-time">22.8s – 35.0s (f684–1050)</span>
+                <span class="kf-desc"><strong>Compounding Climax & God Rays:</strong> Giant <code>$1T value</code> milestone numeral (160px with white bloom) ➔ finale cutout with rotating volumetric god rays (4°/sec) and glowing <code>$140 billion</code> payout tag ("Time did the work").</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </article>
+
+
+    <!-- ======================================================== -->
+    <!-- TEMPLATE 3: HISTORY REEL, VERTICAL                       -->
+    <!-- ======================================================== -->
+    <article id="t3-eiffel" class="template-card">
+      <div class="card-header">
+        <div class="card-title-group">
+          <h2>3. History reel, vertical</h2>
+          <p style="color:var(--text-muted); font-size:0.9rem;">9:16 Vertical Smartphone Documentary • Sepia Cutouts • Torn Paper Silhouette • Distressed Stamps</p>
+        </div>
+        <div class="card-meta">
+          <span class="meta-tag">Aspect: 9:16 (1080×1920)</span>
+          <span class="meta-tag">Duration: 37s</span>
+          <span class="meta-tag">Pacing: 14 Narrative Cuts</span>
+        </div>
+      </div>
+
+      <div class="card-body">
+        <div class="preview-stage-container">
+          <div class="preview-stage stage-9-16">
+            <div id="stage-doc-eiffel">
+              <div style="font-family:var(--font-serif); font-size:0.85rem; font-weight:700; color:#5c3818; border-bottom:1px solid #d4c5a9; padding-bottom:4px;">
+                THE PARIS GAZETTE • 1889
+              </div>
+
+              <div class="cutout-silhouette" id="eiffel-cutout"></div>
+
+              <div class="vintage-stamp" id="eiffel-stamp" style="top:42%; left:20%;">
+                PROTEST!
+              </div>
+
+              <div style="background:rgba(255,255,255,0.4); border:1px solid #d4c5a9; border-radius:6px; padding:0.6rem; font-size:0.75rem; color:#4a2c0f; font-family:var(--font-serif); text-align:center;">
+                "Permit granted for exactly 20 years."
+              </div>
+            </div>
+          </div>
+          <div class="stage-controls">
+            <span>Live 9:16 Simulator</span>
+            <div>
+              <button class="control-btn" onclick="playEiffel()">▶ Slam Stamp</button>
+              <button class="control-btn" onclick="resetEiffel()">↺ Reset</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="detail-panel">
+          <div class="box-section">
+            <div class="box-title">
+              <span>Detailed Generation Prompt</span>
+              <button class="copy-btn" onclick="copyText('prompt-doc-3')">Copy Prompt</button>
+            </div>
+            <div class="prompt-content" id="prompt-doc-3">Make a vertical reel. Natural speaking pace. Narration, word for word:
+"In eighteen eighty-nine, Paris built the tallest structure on Earth. And almost everyone hated it. Leading artists signed a protest, calling it useless and monstrous. Its engineer, Gustave Eiffel, only had a permit for 20 years. After that, the tower was supposed to come down. But here's the crazy part: Eiffel knew he had to make it useful. So he turned it into a science lab, and put a radio antenna on top."
+
+Style: Sepia cutouts on aged paper background, red archival stamps, 9:16 mobile format.</div>
+          </div>
+
+          <div class="box-section">
+            <div class="box-title">Choreography & Keyframe Breakdown</div>
+            <ul class="keyframe-list">
+              <li class="keyframe-item">
+                <span class="kf-time">0.0s – 1.0s</span>
+                <span class="kf-desc"><strong>Year Counter:</strong> Stepped mechanical counter rolls from 1880 to 1889.</span>
+              </li>
+              <li class="keyframe-item">
+                <span class="kf-time">1.0s – 2.0s</span>
+                <span class="kf-desc"><strong>Tower Rises:</strong> Sepia cutout ascends with torn white fringe border (polygon clip-path).</span>
+              </li>
+              <li class="keyframe-item">
+                <span class="kf-time">2.0s – 2.4s</span>
+                <span class="kf-desc"><strong>Stamp Slam:</strong> Red "PROTEST!" stamp impacts from <code>scale(2.2) -> scale(1.0)</code> with screen shake.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </article>
+
+
+    <!-- ======================================================== -->
+    <!-- TEMPLATE 4 & 5: HIGHLIGHTER STYLES                       -->
+    <!-- ======================================================== -->
+    <article id="t4-doc-chapter" class="template-card">
+      <div class="card-header">
+        <div class="card-title-group">
+          <h2>4 & 5. Documentary chapter & Business story (Highlighter Style)</h2>
+          <p style="color:var(--text-muted); font-size:0.9rem;">Highlighter Style • Animated SVG Marker Pen Stroke • Redaction Reveals • Archival Quotes</p>
+        </div>
+        <div class="card-meta">
+          <span class="meta-tag">Aspect: 16:9</span>
+          <span class="meta-tag">Duration: 25s</span>
+          <span class="meta-tag">Style: Highlighter</span>
+        </div>
+      </div>
+
+      <div class="card-body">
+        <div class="preview-stage-container">
+          <div class="preview-stage stage-16-9">
+            <div id="stage-highlighter">
+              <div style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.1em; color:#a16207; font-weight:700; margin-bottom:0.75rem;">
+                Official Memorandum • October 1999
+              </div>
+              <div class="news-headline">
+                In a closed-door meeting, Blockbuster executives officially rejected an offer to acquire Netflix for <span class="highlight-span" id="high-target">$50 million</span>.
+              </div>
+              <div style="margin-top:1.25rem; font-size:0.85rem; color:#78716c;">
+                Status: <span class="redaction-bar">CONFIDENTIAL TRANSACTION</span> • Document unsealed 2011
+              </div>
+            </div>
+          </div>
+          <div class="stage-controls">
+            <span>Live Motion Simulator</span>
+            <div>
+              <button class="control-btn" onclick="playHighlighter()">▶ Draw Highlight</button>
+              <button class="control-btn" onclick="resetHighlighter()">↺ Reset</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="detail-panel">
+          <div class="box-section">
+            <div class="box-title">
+              <span>Detailed Generation Prompt</span>
+              <button class="copy-btn" onclick="copyText('prompt-doc-4')">Copy Prompt</button>
+            </div>
+            <div class="prompt-content" id="prompt-doc-4">Make a business story video in Highlighter style:
+Numbers, dates, one turning point. The year, the number, an archive photo, a real quote.
+
+Highlight the pivotal decision: The $50M offer rejected in 1999, followed by Blockbuster filing bankruptcy in 2010 while Netflix surpassed $250B valuation.
+Yellow marker stroke must sweep across key dates and numbers on exact voiceover beats.</div>
+          </div>
+
+          <div class="box-section">
+            <div class="box-title">Choreography & Keyframe Breakdown</div>
+            <ul class="keyframe-list">
+              <li class="keyframe-item">
+                <span class="kf-time">0.0s – 1.0s</span>
+                <span class="kf-desc"><strong>Document Placement:</strong> Vintage typed memo slides in with soft paper friction audio.</span>
+              </li>
+              <li class="keyframe-item">
+                <span class="kf-time">1.0s – 2.2s</span>
+                <span class="kf-desc"><strong>Highlighter Sweep:</strong> Neon yellow highlighter pseudo-element expands <code>width: 0% -> 104%</code> over text.</span>
+              </li>
+              <li class="keyframe-item">
+                <span class="kf-time">2.2s – 3.2s</span>
+                <span class="kf-desc"><strong>Impact Delta:</strong> Split-screen comparison card pops up showing contrasting destiny numbers.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </article>
+
+
+    <!-- ======================================================== -->
+    <!-- TEMPLATE 6: PAPER ESSAY FROM A REEL                      -->
+    <!-- ======================================================== -->
+    <article id="t6-paper-essay" class="template-card">
+      <div class="card-header">
+        <div class="card-title-group">
+          <h2>6. Paper essay from a reel</h2>
+          <p style="color:var(--text-muted); font-size:0.9rem;">Paper Essay Style • Multi-Layered Scrapbook Desk • Washi Tape Accents • Editorial Typography</p>
+        </div>
+        <div class="card-meta">
+          <span class="meta-tag">Aspect: 16:9 (1920×1080)</span>
+          <span class="meta-tag">Duration: 45s</span>
+          <span class="meta-tag">Style: Paper Essay</span>
+        </div>
+      </div>
+
+      <div class="card-body">
+        <div class="preview-stage-container">
+          <div class="preview-stage stage-16-9">
+            <div id="stage-paper-essay">
+              <div class="scrapbook-card" id="essay-card">
+                <div class="tape-strip"></div>
+                <div style="font-family:var(--font-serif); font-size:0.75rem; text-transform:uppercase; color:#854d0e; font-weight:700;">Chapter I: The Genesis</div>
+                <h3 style="font-family:var(--font-serif); font-size:1.35rem; color:#1c1917; margin:6px 0 10px;">The Waffle Iron Sole</h3>
+                <p style="font-family:var(--font-serif); font-size:0.85rem; color:#57534e; line-height:1.5;">
+                  Bill Bowerman poured polyurethane into his family's kitchen waffle iron on a Sunday morning in Oregon. The experiment destroyed the waffle iron, but forged an empire.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="stage-controls">
+            <span>Live Motion Simulator</span>
+            <div>
+              <button class="control-btn" onclick="playPaperEssay()">▶ Unfold Scrapbook</button>
+              <button class="control-btn" onclick="resetPaperEssay()">↺ Reset</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="detail-panel">
+          <div class="box-section">
+            <div class="box-title">
+              <span>Detailed Generation Prompt</span>
+              <button class="copy-btn" onclick="copyText('prompt-doc-6')">Copy Prompt</button>
+            </div>
+            <div class="prompt-content" id="prompt-doc-6">Make a longer paper essay built from one source.
+Style: Paper Essay.
+A longer piece, built from one source with layered archival photos, patent sketches, washi tape strips, and warm editorial serif typography.
+
+Scene 1: Scrapbook desk pan across vintage blueprint drawings.
+Scene 2: Card drop with tactile shadow and physical washi tape peel.
+Scene 3: Photo evidence zoom with handwritten margin notes.</div>
+          </div>
+
+          <div class="box-section">
+            <div class="box-title">Choreography & Keyframe Breakdown</div>
+            <ul class="keyframe-list">
+              <li class="keyframe-item">
+                <span class="kf-time">0.0s – 1.4s</span>
+                <span class="kf-desc"><strong>Card Drop:</strong> Paper card drops from <code>translateY(-40px) scale(0.9)</code> with air-cushion settle.</span>
+              </li>
+              <li class="keyframe-item">
+                <span class="kf-time">1.4s – 2.0s</span>
+                <span class="kf-desc"><strong>Tape Adhesion:</strong> Semi-transparent washi tape slap locks the top edge down.</span>
+              </li>
+              <li class="keyframe-item">
+                <span class="kf-time">2.0s – 3.5s</span>
+                <span class="kf-desc"><strong>Camera Drift:</strong> Smooth 2.5D camera drift across the desk as narration elaborates.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </article>
+
+  </main>
+
+  <script>
+    function copyText(id) {
+      const text = document.getElementById(id).innerText;
+      navigator.clipboard.writeText(text);
+      alert('Prompt copied to clipboard!');
+    }
+
+    // Vox Map Simulation
+    function playVoxMap() {
+      resetVoxMap();
+      const map = document.getElementById('vox-map');
+      const path = document.getElementById('vox-path');
+      const pin = document.getElementById('vox-pin');
+      const label = document.getElementById('vox-label');
+
+      map.style.transform = 'scale(1.2) translate(-40px, -20px)';
+      path.style.strokeDashoffset = '0';
+      pin.style.transform = 'translate(-50%, -100%) scale(1)';
+      label.style.opacity = '1';
+      label.style.transform = 'rotate(-2deg) scale(1)';
+    }
+    function resetVoxMap() {
+      const map = document.getElementById('vox-map');
+      const path = document.getElementById('vox-path');
+      const pin = document.getElementById('vox-pin');
+      const label = document.getElementById('vox-label');
+
+      map.style.transform = 'scale(1.0) translate(0, 0)';
+      path.style.strokeDashoffset = '400';
+      pin.style.transform = 'translate(-50%, -100%) scale(0)';
+      label.style.opacity = '0';
+      label.style.transform = 'rotate(-2deg) scale(0.9)';
+    }
+
+    // Buffett Parallax Simulation
+    function playBuffett() {
+      resetBuffett();
+      const photo = document.getElementById('buffett-photo');
+      const stat = document.getElementById('buffett-stat');
+      photo.style.transform = 'scale(1.18)';
+      stat.style.opacity = '1';
+      stat.style.transform = 'translateY(0)';
+    }
+    function resetBuffett() {
+      const photo = document.getElementById('buffett-photo');
+      const stat = document.getElementById('buffett-stat');
+      photo.style.transform = 'scale(1.0)';
+      stat.style.opacity = '0';
+      stat.style.transform = 'translateY(20px)';
+    }
+
+    // Eiffel Vertical Simulation
+    function playEiffel() {
+      resetEiffel();
+      const cutout = document.getElementById('eiffel-cutout');
+      const stamp = document.getElementById('eiffel-stamp');
+      cutout.style.opacity = '1';
+      cutout.style.transform = 'translateY(0) scale(1)';
+      stamp.style.opacity = '1';
+      stamp.style.transform = 'rotate(-14deg) scale(1.0)';
+    }
+    function resetEiffel() {
+      const cutout = document.getElementById('eiffel-cutout');
+      const stamp = document.getElementById('eiffel-stamp');
+      cutout.style.opacity = '0';
+      cutout.style.transform = 'translateY(30px) scale(0.9)';
+      stamp.style.opacity = '0';
+      stamp.style.transform = 'rotate(-14deg) scale(2.2)';
+    }
+
+    // Highlighter Simulation
+    function playHighlighter() {
+      resetHighlighter();
+      const target = document.getElementById('high-target');
+      setTimeout(() => {
+        target.classList.add('active');
+      }, 300);
+    }
+    function resetHighlighter() {
+      document.getElementById('high-target').classList.remove('active');
+    }
+
+    // Paper Essay Simulation
+    function playPaperEssay() {
+      resetPaperEssay();
+      const card = document.getElementById('essay-card');
+      card.style.opacity = '1';
+      card.style.transform = 'rotate(2deg) scale(1)';
+    }
+    function resetPaperEssay() {
+      const card = document.getElementById('essay-card');
+      card.style.opacity = '0';
+      card.style.transform = 'rotate(2deg) scale(0.9)';
+    }
+
+    // Autoplay on load
+    window.addEventListener('DOMContentLoaded', () => {
+      setTimeout(playVoxMap, 600);
+    });
+  </script>
+</body>
+</html>
