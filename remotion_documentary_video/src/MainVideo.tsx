@@ -5,6 +5,9 @@ import { Act1Origin } from './scenes/Act1Origin';
 import { Act2GPURevolution } from './scenes/Act2GPURevolution';
 import { Act3Geopolitics } from './scenes/Act3Geopolitics';
 import { Act4AIEpoch } from './scenes/Act4AIEpoch';
+import { Act5BoardInvestigation } from './scenes/Act5BoardInvestigation';
+import { Act6MarketTremors } from './scenes/Act6MarketTremors';
+import { Act7SuperpowerClash } from './scenes/Act7SuperpowerClash';
 
 export const MainVideo: React.FC = () => {
   return (
@@ -33,8 +36,25 @@ export const MainVideo: React.FC = () => {
           <Audio src={staticFile(ACT_TIMINGS[3].audioSrc)} volume={1} />
           <Act4AIEpoch />
         </Series.Sequence>
-      </Series>
 
+        {/* ACT 5: THE BOARD INVESTIGATION (840 frames / 28.00s) */}
+        <Series.Sequence durationInFrames={ACT_TIMINGS[4].durationInFrames}>
+          <Audio src={staticFile(ACT_TIMINGS[4].audioSrc)} volume={1} />
+          <Act5BoardInvestigation />
+        </Series.Sequence>
+
+        {/* ACT 6: WALL STREET TREMORS (871 frames / 29.04s) */}
+        <Series.Sequence durationInFrames={ACT_TIMINGS[5].durationInFrames}>
+          <Audio src={staticFile(ACT_TIMINGS[5].audioSrc)} volume={1} />
+          <Act6MarketTremors />
+        </Series.Sequence>
+
+        {/* ACT 7: TECH SOVEREIGNTY IN THE CROSSHAIRS (836 frames / 27.88s) */}
+        <Series.Sequence durationInFrames={ACT_TIMINGS[6].durationInFrames}>
+          <Audio src={staticFile(ACT_TIMINGS[6].audioSrc)} volume={1} />
+          <Act7SuperpowerClash />
+        </Series.Sequence>
+      </Series>
     </AbsoluteFill>
   );
 };

@@ -5,6 +5,9 @@ import { Act1Origin } from './scenes/Act1Origin';
 import { Act2GPURevolution } from './scenes/Act2GPURevolution';
 import { Act3Geopolitics } from './scenes/Act3Geopolitics';
 import { Act4AIEpoch } from './scenes/Act4AIEpoch';
+import { Act5BoardInvestigation } from './scenes/Act5BoardInvestigation';
+import { Act6MarketTremors } from './scenes/Act6MarketTremors';
+import { Act7SuperpowerClash } from './scenes/Act7SuperpowerClash';
 import {
   ExplainerShowcase,
   ExplainerStepper,
@@ -88,6 +91,51 @@ export const RemotionRoot: React.FC = () => {
           </>
         )}
         durationInFrames={ACT_TIMINGS[3].durationInFrames}
+        fps={FPS}
+        width={WIDTH}
+        height={HEIGHT}
+      />
+
+      {/* Standalone Act 5: The Board Investigation & Family Apology */}
+      <Composition
+        id="Act5-BoardInvestigation"
+        component={() => (
+          <>
+            <Audio src={staticFile(ACT_TIMINGS[4].audioSrc)} volume={1} />
+            <Act5BoardInvestigation />
+          </>
+        )}
+        durationInFrames={ACT_TIMINGS[4].durationInFrames}
+        fps={FPS}
+        width={WIDTH}
+        height={HEIGHT}
+      />
+
+      {/* Standalone Act 6: Wall Street Tremors & Stock Jitters */}
+      <Composition
+        id="Act6-MarketTremors"
+        component={() => (
+          <>
+            <Audio src={staticFile(ACT_TIMINGS[5].audioSrc)} volume={1} />
+            <Act6MarketTremors />
+          </>
+        )}
+        durationInFrames={ACT_TIMINGS[5].durationInFrames}
+        fps={FPS}
+        width={WIDTH}
+        height={HEIGHT}
+      />
+
+      {/* Standalone Act 7: Tech Sovereignty in the Crosshairs */}
+      <Composition
+        id="Act7-SuperpowerClash"
+        component={() => (
+          <>
+            <Audio src={staticFile(ACT_TIMINGS[6].audioSrc)} volume={1} />
+            <Act7SuperpowerClash />
+          </>
+        )}
+        durationInFrames={ACT_TIMINGS[6].durationInFrames}
         fps={FPS}
         width={WIDTH}
         height={HEIGHT}

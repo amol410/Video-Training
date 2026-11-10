@@ -49,6 +49,33 @@ export const ACT_TIMINGS: ActConfig[] = [
     durationInSeconds: 43.76,
     durationInFrames: 1313,
   },
+  {
+    id: 'act5-board-investigation',
+    actNumber: 5,
+    title: 'THE BOARD INVESTIGATION',
+    subtitle: 'Foreign Targeting Claims & The Emotional Family Apology',
+    audioSrc: 'assets/5china.wav',
+    durationInSeconds: 28.00,
+    durationInFrames: 840,
+  },
+  {
+    id: 'act6-market-tremors',
+    actNumber: 6,
+    title: 'WALL STREET TREMORS',
+    subtitle: 'Executive Fidelity Questions & Nvidia Stock Jitters',
+    audioSrc: 'assets/6china.wav',
+    durationInSeconds: 29.04,
+    durationInFrames: 871,
+  },
+  {
+    id: 'act7-superpower-clash',
+    actNumber: 7,
+    title: 'TECH SOVEREIGNTY IN THE CROSSHAIRS',
+    subtitle: 'The Grand Finale: Tech Titans, Geopolitics & AI Supremacy',
+    audioSrc: 'assets/7china.wav',
+    durationInSeconds: 27.88,
+    durationInFrames: 836,
+  },
 ];
 
 export const TOTAL_DURATION_FRAMES = ACT_TIMINGS.reduce(
