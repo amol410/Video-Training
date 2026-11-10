@@ -8,6 +8,7 @@ import { PaperBackground } from '../components/PaperBackground';
 import { NewspaperCutout } from '../components/NewspaperCutout';
 import { ExplainerSourceCallout } from '../components/explainers/ExplainerSourceCallout';
 import { DocumentaryHighlightText } from '../components/DocumentaryHighlightText';
+import { ScribbleCircle } from '../components/ScribbleCircle';
 
 export const Act5BoardInvestigation: React.FC = () => {
   const frame = useCurrentFrame();
@@ -169,7 +170,17 @@ export const Act5BoardInvestigation: React.FC = () => {
                     color: '#1E293B',
                   }}
                 >
-                  "To my wife and family, I love you deeply. I know an apology cannot erase what has happened, but I hope with time I can earn back your trust."
+                  "To my wife and family, I love you deeply. I know an apology cannot erase what has happened, but I hope with time I can earn back your{' '}
+                  <ScribbleCircle
+                    startFrame={410}
+                    color="#DC2626"
+                    strokeWidth={4}
+                    playAudio={true}
+                    audioVolume={0.35}
+                    rotation={-2}
+                  >
+                    trust.
+                  </ScribbleCircle>"
                 </div>
 
                 <div

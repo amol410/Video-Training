@@ -11,6 +11,7 @@ import { NewspaperCutout } from '../components/NewspaperCutout';
 import { ExplainerStepper } from '../components/explainers/ExplainerStepper';
 import { ExplainerSourceCallout } from '../components/explainers/ExplainerSourceCallout';
 import { DocumentaryHighlightText } from '../components/DocumentaryHighlightText';
+import { ScribbleCircle } from '../components/ScribbleCircle';
 import { ASSETS } from '../constants';
 
 export const Act3Geopolitics: React.FC = () => {
@@ -226,16 +227,57 @@ export const Act3Geopolitics: React.FC = () => {
                   The Megaspeed & MSS Allegations
                 </div>
 
-                {/* Direct On-Screen Narrative with Yellow Highlighter */}
-                <DocumentaryHighlightText
-                  prefix="Megaspeed, a Singapore cloud operator, became a multi-billion-dollar buyer of H100 clusters. U.S. intelligence questioned whether it served as"
-                  highlightedText="a conduit to bypass export bans"
-                  suffix="and route compute power toward Chinese state entities."
-                  startFrame={520}
-                  highlightDuration={22}
-                  fontSize={25}
-                  style={{ textAlign: 'left', lineHeight: 1.55 }}
-                />
+                {/* Direct On-Screen Narrative with Yellow Highlighter & Red Scribble Circle */}
+                <div
+                  style={{
+                    fontFamily: "'Newsreader', 'Georgia', serif",
+                    fontSize: '25px',
+                    lineHeight: 1.6,
+                    color: '#1E293B',
+                    textAlign: 'left',
+                  }}
+                >
+                  Megaspeed, a Singapore cloud operator, became a multi-billion-dollar buyer of H100 clusters. U.S. intelligence questioned whether it served as{' '}
+                  <span style={{ position: 'relative', display: 'inline-block' }}>
+                    <span
+                      style={{
+                        position: 'absolute',
+                        left: '-4px',
+                        right: '-4px',
+                        bottom: '4%',
+                        height: '75%',
+                        backgroundColor: '#FFE600',
+                        opacity: 0.9,
+                        mixBlendMode: 'multiply',
+                        borderRadius: '3px',
+                        transform: 'skewX(-6deg)',
+                        clipPath: `inset(0 ${Math.max(
+                          0,
+                          100 -
+                            interpolate(frame - 520, [0, 22], [0, 100], {
+                              extrapolateLeft: 'clamp',
+                              extrapolateRight: 'clamp',
+                            })
+                        )}% 0 0)`,
+                        zIndex: 0,
+                      }}
+                    />
+                    <span style={{ position: 'relative', zIndex: 1, color: '#0F172A', fontWeight: 800 }}>
+                      a{' '}
+                      <ScribbleCircle
+                        startFrame={545}
+                        color="#DC2626"
+                        strokeWidth={4}
+                        playAudio={true}
+                        audioVolume={0.35}
+                      >
+                        conduit
+                      </ScribbleCircle>{' '}
+                      to bypass export bans
+                    </span>
+                  </span>{' '}
+                  and route compute power toward Chinese state entities.
+                </div>
 
                 <div
                   style={{

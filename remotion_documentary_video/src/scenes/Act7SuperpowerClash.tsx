@@ -8,6 +8,7 @@ import { PaperBackground } from '../components/PaperBackground';
 import { NewspaperCutout } from '../components/NewspaperCutout';
 import { ExplainerSourceCallout } from '../components/explainers/ExplainerSourceCallout';
 import { DocumentaryHighlightText } from '../components/DocumentaryHighlightText';
+import { ScribbleCircle } from '../components/ScribbleCircle';
 
 export const Act7SuperpowerClash: React.FC = () => {
   const frame = useCurrentFrame();
@@ -159,7 +160,20 @@ export const Act7SuperpowerClash: React.FC = () => {
                   letterSpacing: '-0.02em',
                 }}
               >
-                Technology Is the Ultimate Superpower.
+                Technology Is the Ultimate{' '}
+                <ScribbleCircle
+                  startFrame={460}
+                  color="#DC2626"
+                  strokeWidth={4.5}
+                  playAudio={true}
+                  audioVolume={0.35}
+                  paddingX={24}
+                  paddingY={18}
+                  offsetX={-16}
+                  rotation={-1}
+                >
+                  Superpower.
+                </ScribbleCircle>
               </div>
 
               {/* Direct On-Screen Narrative with Yellow Highlighter */}
